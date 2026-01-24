@@ -97,13 +97,11 @@ Fetch and harmonize World Bank and OWID data:
 
 ```bash
 PYTHONPATH=src python scripts/q4a_fetch_panel_all.py
-```
 
 Build the country–year panel:
 
 ```bash
 PYTHONPATH=src python scripts/q4a_build_multicountry_panel.py
-```
 
 ⸻
 
@@ -112,12 +110,12 @@ PYTHONPATH=src python scripts/q4a_build_multicountry_panel.py
 Construct interpretable level and dynamic features:
 
 ```bash
-PYTHONPATH=src python scripts/q4a_features.py```
+PYTHONPATH=src python scripts/q4a_features.py`
 
 Output:
 
 ```bash
-data/processed/q4a_features.parquet```
+data/processed/q4a_features.parquet
 
 ⸻
 
@@ -126,7 +124,7 @@ data/processed/q4a_features.parquet```
 Run rolling temporal validation and export predictions:
 
 ```bash
-PYTHONPATH=src python scripts/q4a_train.py```
+PYTHONPATH=src python scripts/q4a_train.py`
 
 Outputs:
 	•	Model metrics
@@ -141,7 +139,7 @@ Translate classification results into investment categories:
 
 ```bash
 PYTHONPATH=src python scripts/q5_prioritization.py
-```
+
 
 
 ⸻
