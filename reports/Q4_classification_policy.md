@@ -83,10 +83,6 @@ Categorize policy measures (pricing, regulation, R&D support) according to expec
 
 ***
 
-### Figures
-
-![Policy matrix](figures/policy_matrix.png)
-
 ## 8. Conclusion
 
 Q4 shows interpretable early-warning signals for regime transitions, supporting the translation into strategic prioritization in Q5.
