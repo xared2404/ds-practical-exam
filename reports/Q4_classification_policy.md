@@ -98,3 +98,20 @@ Limitations: reduced-form target, correlation not causation, uneven data coverag
 Q4 shows interpretable early-warning signals for regime transitions, supporting the translation into strategic prioritization in Q5.
 	•	Fixed test window: 5 years
 
+## Figures
+
+SHAP explainability and diagnostic plots (see `data/processed/`):
+
+- SHAP summary (dot):
+
+	![SHAP summary dot](../data/processed/q4_shap_summary_dot.png)
+
+- SHAP summary (bar):
+
+	![SHAP summary bar](../data/processed/q4_shap_summary_bar.png)
+
+- SHAP dependence (top feature):
+
+	![SHAP dependence top1](../data/processed/q4_shap_dependence_top1.png)
+
+

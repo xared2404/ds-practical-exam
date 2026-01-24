@@ -163,6 +163,27 @@ Dynamic signals dominate static indicators, and early detection of regime transi
 
 ---
 
+## Figures
+
+Below are example figures generated during the analysis and saved under `data/processed/`.
+
+Co₂ per capita timeseries:
+
+![CO₂ per capita timeseries](data/processed/co2_per_capita_timeseries.png)
+
+GDP vs CO₂ per capita (scatter):
+
+![GDP vs CO₂ per capita](data/processed/gdp_vs_co2_per_capita.png)
+
+Q3 — Scenario projections (example):
+
+![Q3 scenarios CO₂ (Mt)](data/processed/q3_scenarios_co2_mt_2035.png)
+
+Q4 — SHAP explainability (example):
+
+![Q4 SHAP summary](data/processed/q4_shap_summary_dot.png)
+
+
 ## Author
 
 Prepared as part of a Data Science practical exam. All analysis and interpretations are for academic evaluation purposes.

@@ -110,4 +110,13 @@ This ranking does not measure global mitigation impact, emissions responsibility
 
 Accordingly, the ranking should be interpreted as identifying where interventions are most likely to succeed, not where they are most morally or historically justified.
 
+## Data
+
+The ranking table used to produce the example above is available as a CSV in `data/processed/`:
+
+`data/processed/q5_country_ranking.csv`
+
+To produce a figure from this table (e.g., top-30 bar chart), load the CSV and plot `priority_score` by `iso3` and save the output in `outputs/figures/`.
+
+
 

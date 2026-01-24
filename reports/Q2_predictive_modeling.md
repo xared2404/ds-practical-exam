@@ -66,3 +66,10 @@ Estimation Results (Model A)
 
 	•	Observations: 68
 
+## Figures
+
+- GDP vs CO₂ per capita (supporting figure):
+
+  ![GDP vs CO₂ per capita](../data/processed/gdp_vs_co2_per_capita.png)
+
+

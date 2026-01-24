@@ -138,4 +138,13 @@ The ranking presented in the companion file operationalizes this logic; it is he
 
 Q5 integrates dynamic readiness, scenario leverage, and structural feasibility into a coherent prioritization logic that emphasizes timing and policy leverage over static metrics.
 
+## Data products and artifacts
+
+The operational ranking and derived datasets are saved under `data/processed/`. In particular:
+
+- `data/processed/q5_country_ranking.csv` — country prioritization scores and components (readiness, recent dynamics, composite score).
+
+If you prefer a visual representation of the ranking, generate a bar chart from `q5_country_ranking.csv` and save it into `outputs/figures/` for inclusion here.
+
+
 

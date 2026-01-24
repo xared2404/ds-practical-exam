@@ -101,6 +101,23 @@ From a methodological perspective, the exercise illustrates how econometric mode
 
 This completes the scenario-based assessment of emissions trajectories. The next section builds on these findings to draw broader conclusions about economic growth, environmental sustainability, and the role of policy in shaping long-run outcomes.
 
+## Figures
+
+Representative figures (stored in `data/processed/`):
+
+- Baseline total CO₂ projections (2035, Mt):
+
+	![Q3 baseline CO2 Mt 2035](../data/processed/q3_baseline_co2_mt_2035.png)
+
+- Scenario comparisons (total CO₂, 2035, Mt):
+
+	![Q3 scenarios CO2 Mt 2035](../data/processed/q3_scenarios_co2_mt_2035.png)
+
+- Per-capita projections (example):
+
+	![Q3 baseline CO2 per capita 2035](../data/processed/q3_baseline_co2_pc_2035.png)
+
+
 These results motivate a shift from long-run scenario projection to regime detection. If small differences in decoupling rates generate large emissions gaps over time, an immediate policy-relevant question emerges: can countries that are already entering low-emissions regimes be identified early? This question is addressed in Q4.
 
 

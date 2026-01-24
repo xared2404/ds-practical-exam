@@ -125,6 +125,19 @@ The final output is a balanced panel with:
   - `co2_per_capita`
 
 The dataset is saved in both CSV and Parquet formats:
+
+## Figures
+
+Key diagnostic figures (saved in `data/processed/`):
+
+- CO₂ per capita timeseries (Mexico, USA):
+
+   ![CO₂ per capita timeseries](../data/processed/co2_per_capita_timeseries.png)
+
+- GDP vs CO₂ per capita scatter:
+
+   ![GDP vs CO₂ per capita](../data/processed/gdp_vs_co2_per_capita.png)
+
 # Data Analysis Report (Q1)
 
 ## 1. Dataset Overview
