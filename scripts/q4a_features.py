@@ -11,11 +11,13 @@ OUTPATH = DATA / "q4a_features.parquet"
 
 EPS = 1e-12
 
+
 def _pick(df: pd.DataFrame, options):
     for c in options:
         if c in df.columns:
             return c
     return None
+
 
 def main():
     if not INPATH.exists():
@@ -25,7 +27,9 @@ def main():
     df = pd.read_parquet(INPATH).copy()
 
     if not {"iso3", "year"}.issubset(df.columns):
-        raise SystemExit(f"[Q4A] Missing iso3/year in panel. Columns={df.columns.tolist()}")
+        raise SystemExit(
+            f"[Q4A] Missing iso3/year in panel. Columns={df.columns.tolist()}"
+        )
 
     # Types / cleaning
     df["year"] = pd.to_numeric(df["year"], errors="coerce").astype("Int64")
@@ -49,7 +53,9 @@ def main():
     df["co2_per_capita"] = pd.to_numeric(df[col_co2pc], errors="coerce")
 
     # Basic sanity drops before ratios/logs
-    df = df.dropna(subset=["iso3", "year", "gdp", "population", "co2_per_capita"]).copy()
+    df = df.dropna(
+        subset=["iso3", "year", "gdp", "population", "co2_per_capita"]
+    ).copy()
     df["year"] = df["year"].astype(int)
 
     # Guardrails against zero/negative
@@ -114,10 +120,7 @@ def main():
 
     # Final clean matrix
     df_feat = (
-        df[keep_cols]
-        .replace([np.inf, -np.inf], np.nan)
-        .dropna()
-        .reset_index(drop=True)
+        df[keep_cols].replace([np.inf, -np.inf], np.nan).dropna().reset_index(drop=True)
     )
 
     OUTPATH.parent.mkdir(parents=True, exist_ok=True)
@@ -129,7 +132,6 @@ def main():
     print("Class balance:", df_feat["target"].value_counts().to_dict())
     print("Years range:", (int(df_feat["year"].min()), int(df_feat["year"].max())))
 
+
 if __name__ == "__main__":
     main()
-
-

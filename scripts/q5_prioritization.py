@@ -21,20 +21,26 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "processed"
 REPORTS = ROOT / "reports"
 
+
 def load_features():
     path = DATA / "q4a_features.parquet"
     if not path.exists():
-        raise SystemExit(f"[Q5] Missing input: {path}\nRun Q4 first to generate q4a_features.parquet.")
+        raise SystemExit(
+            f"[Q5] Missing input: {path}\nRun Q4 first to generate q4a_features.parquet."
+        )
     print("Reading:", path)
     df = pd.read_parquet(path)
 
     # sanity
-    needed = {"iso3","year","target"}
+    needed = {"iso3", "year", "target"}
     if not needed.issubset(df.columns):
-        raise SystemExit(f"[Q5] q4a_features.parquet missing required columns: {needed - set(df.columns)}")
+        raise SystemExit(
+            f"[Q5] q4a_features.parquet missing required columns: {needed - set(df.columns)}"
+        )
 
     df = df.replace([np.inf, -np.inf], np.nan).dropna().reset_index(drop=True)
     return df
+
 
 def train_rf(X, y):
     rf = RandomForestClassifier(
@@ -47,8 +53,9 @@ def train_rf(X, y):
     rf.fit(X, y)
     return rf
 
+
 def make_ranking(df, recent_years=5):
-    feat_cols = [c for c in df.columns if c not in ("iso3","year","target")]
+    feat_cols = [c for c in df.columns if c not in ("iso3", "year", "target")]
     X = df[feat_cols].copy()
     y = df["target"].astype(int)
 
@@ -59,7 +66,7 @@ def make_ranking(df, recent_years=5):
     prob = model.predict_proba(X)[:, 1]
     pred = (prob >= 0.5).astype(int)
 
-    df_scored = df[["iso3","year","target"]].copy()
+    df_scored = df[["iso3", "year", "target"]].copy()
     df_scored["p_transition"] = prob
     df_scored["pred_transition"] = pred
 
@@ -74,8 +81,16 @@ def make_ranking(df, recent_years=5):
 
         # dynamic signal (if available in df)
         dyn = df.loc[g_recent.index]
-        dco2 = dyn["d_co2_per_capita"].mean() if "d_co2_per_capita" in dyn.columns else np.nan
-        dint = dyn["d_ln_co2_intensity"].mean() if "d_ln_co2_intensity" in dyn.columns else np.nan
+        dco2 = (
+            dyn["d_co2_per_capita"].mean()
+            if "d_co2_per_capita" in dyn.columns
+            else np.nan
+        )
+        dint = (
+            dyn["d_ln_co2_intensity"].mean()
+            if "d_ln_co2_intensity" in dyn.columns
+            else np.nan
+        )
         dgdp = dyn["d_ln_gdp_pc"].mean() if "d_ln_gdp_pc" in dyn.columns else np.nan
 
         latest = g.iloc[-1]
@@ -114,32 +129,51 @@ def make_ranking(df, recent_years=5):
     rank["priority_score"] = score
 
     # rank high to low
-    rank = rank.sort_values(["priority_score","avg_p_transition_recentN","latest_p_transition"], ascending=False).reset_index(drop=True)
+    rank = rank.sort_values(
+        ["priority_score", "avg_p_transition_recentN", "latest_p_transition"],
+        ascending=False,
+    ).reset_index(drop=True)
     rank["rank"] = np.arange(1, len(rank) + 1)
 
     return df_scored, rank
 
+
 def to_markdown(rank, outpath_md, top_k=25):
     cols = [
-        "rank","iso3","priority_score",
-        "avg_p_transition_recentN","latest_year","latest_p_transition",
-        "avg_d_co2_per_capita_recentN"
+        "rank",
+        "iso3",
+        "priority_score",
+        "avg_p_transition_recentN",
+        "latest_year",
+        "latest_p_transition",
+        "avg_d_co2_per_capita_recentN",
     ]
     view = rank[cols].copy()
     view["priority_score"] = view["priority_score"].map(lambda x: f"{x:.3f}")
-    view["avg_p_transition_recentN"] = view["avg_p_transition_recentN"].map(lambda x: f"{x:.3f}")
+    view["avg_p_transition_recentN"] = view["avg_p_transition_recentN"].map(
+        lambda x: f"{x:.3f}"
+    )
     view["latest_p_transition"] = view["latest_p_transition"].map(lambda x: f"{x:.3f}")
-    view["avg_d_co2_per_capita_recentN"] = view["avg_d_co2_per_capita_recentN"].map(lambda x: "" if pd.isna(x) else f"{x:.3f}")
+    view["avg_d_co2_per_capita_recentN"] = view["avg_d_co2_per_capita_recentN"].map(
+        lambda x: "" if pd.isna(x) else f"{x:.3f}"
+    )
 
     md = []
     md.append("# Q5 Country Prioritization Ranking\n")
-    md.append("This table ranks countries using a simple, interpretable composite score based on:\n")
-    md.append("- Average predicted probability of transition in the most recent window (primary driver)\n")
-    md.append("- Recent emissions dynamics (`d_co2_per_capita`) as a secondary adjustment\n")
+    md.append(
+        "This table ranks countries using a simple, interpretable composite score based on:\n"
+    )
+    md.append(
+        "- Average predicted probability of transition in the most recent window (primary driver)\n"
+    )
+    md.append(
+        "- Recent emissions dynamics (`d_co2_per_capita`) as a secondary adjustment\n"
+    )
     md.append("\n")
     md.append(view.head(top_k).to_markdown(index=False))
     md.append("\n")
     outpath_md.write_text("\n".join(md), encoding="utf-8")
+
 
 def main():
     df = load_features()
@@ -156,7 +190,20 @@ def main():
 
     print("\nSaved:", out_csv)
     print("Saved:", out_md)
-    print("\nTop 10:\n", rank[["rank","iso3","priority_score","avg_p_transition_recentN","latest_year","latest_p_transition"]].head(10))
+    print(
+        "\nTop 10:\n",
+        rank[
+            [
+                "rank",
+                "iso3",
+                "priority_score",
+                "avg_p_transition_recentN",
+                "latest_year",
+                "latest_p_transition",
+            ]
+        ].head(10),
+    )
+
 
 if __name__ == "__main__":
     main()

@@ -23,6 +23,7 @@ REQUIRED_COLS = {
     # "co2_per_capita" (preferido) o "co2_mt" (alternativo)
 }
 
+
 def main():
     if not INPATH.exists():
         raise SystemExit(
@@ -37,7 +38,9 @@ def main():
 
     missing = REQUIRED_COLS - set(df.columns)
     if missing:
-        raise SystemExit(f"[Q4A] Input panel missing required columns: {sorted(missing)}")
+        raise SystemExit(
+            f"[Q4A] Input panel missing required columns: {sorted(missing)}"
+        )
 
     if "co2_per_capita" not in df.columns and "co2_mt" not in df.columns:
         raise SystemExit(
@@ -60,7 +63,9 @@ def main():
         # try to build co2_per_capita if possible
         if "co2_mt" in df.columns:
             # tons per person: (Mt * 1e6) / pop
-            df["co2_per_capita"] = (pd.to_numeric(df["co2_mt"], errors="coerce") * 1e6) / pd.to_numeric(df["population"], errors="coerce")
+            df["co2_per_capita"] = (
+                pd.to_numeric(df["co2_mt"], errors="coerce") * 1e6
+            ) / pd.to_numeric(df["population"], errors="coerce")
         else:
             raise SystemExit("[Q4A] Cannot compute co2_per_capita (missing co2_mt).")
 
@@ -70,7 +75,9 @@ def main():
         df[c] = pd.to_numeric(df[c], errors="coerce")
 
     # ---- Drop rows missing core signals ----
-    df = df.dropna(subset=["iso3", "year", "gdp_current_usd", "population", "co2_per_capita"]).copy()
+    df = df.dropna(
+        subset=["iso3", "year", "gdp_current_usd", "population", "co2_per_capita"]
+    ).copy()
 
     # ---- Coverage filter: keep countries with enough usable years ----
     years_per_iso = df.groupby("iso3")["year"].nunique().sort_values(ascending=False)
@@ -81,7 +88,14 @@ def main():
     df = df.sort_values(["iso3", "year"]).reset_index(drop=True)
 
     # Keep only the columns downstream expects (but keep country name if exists)
-    keep_cols = ["country", "iso3", "year", "gdp_current_usd", "population", "co2_per_capita"]
+    keep_cols = [
+        "country",
+        "iso3",
+        "year",
+        "gdp_current_usd",
+        "population",
+        "co2_per_capita",
+    ]
     if "country" not in df.columns:
         keep_cols.remove("country")
     df = df[keep_cols].copy()
@@ -93,6 +107,7 @@ def main():
     print("Final panel shape:", df.shape)
     print("Countries:", df["iso3"].nunique(), "| Years:", df["year"].nunique())
     print("Years range:", (int(df["year"].min()), int(df["year"].max())))
+
 
 if __name__ == "__main__":
     main()

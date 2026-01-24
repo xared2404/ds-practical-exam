@@ -47,7 +47,10 @@ INDICATORS = {
 SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": "ds-practical-exam-q4a/1.0"})
 
-def _get_json(url: str, params: dict | None = None, retries: int = 5, backoff: float = 1.2):
+
+def _get_json(
+    url: str, params: dict | None = None, retries: int = 5, backoff: float = 1.2
+):
     last_err = None
     for i in range(retries):
         try:
@@ -57,7 +60,10 @@ def _get_json(url: str, params: dict | None = None, retries: int = 5, backoff: f
         except Exception as e:
             last_err = e
             time.sleep(backoff ** (i + 1))
-    raise RuntimeError(f"[WB] Failed after {retries} retries: {url}\nLast error: {last_err}")
+    raise RuntimeError(
+        f"[WB] Failed after {retries} retries: {url}\nLast error: {last_err}"
+    )
+
 
 def fetch_all_countries() -> pd.DataFrame:
     # World Bank countries list is paginated
@@ -67,7 +73,9 @@ def fetch_all_countries() -> pd.DataFrame:
 
     while True:
         url = f"{WB}/country"
-        js = _get_json(url, params={"format": "json", "per_page": per_page, "page": page})
+        js = _get_json(
+            url, params={"format": "json", "per_page": per_page, "page": page}
+        )
         meta, data = js[0], js[1]
         for c in data:
             # Exclude aggregates
@@ -86,7 +94,10 @@ def fetch_all_countries() -> pd.DataFrame:
     print(f"[Q4A] Countries fetched (non-aggregates): {len(df)}")
     return df
 
-def fetch_indicator_long(indicator_code: str, value_name: str, years_min: int, years_max: int) -> pd.DataFrame:
+
+def fetch_indicator_long(
+    indicator_code: str, value_name: str, years_min: int, years_max: int
+) -> pd.DataFrame:
     """
     Robust WB fetch: handles non-standard responses:
       - [] (empty)
@@ -107,15 +118,25 @@ def fetch_indicator_long(indicator_code: str, value_name: str, years_min: int, y
         # retry loop for transient WB glitches/throttling
         js = None
         for attempt in range(5):
-            js = _get_json(url, params={"format": "json", "per_page": per_page, "page": page, "date": date})
+            js = _get_json(
+                url,
+                params={
+                    "format": "json",
+                    "per_page": per_page,
+                    "page": page,
+                    "date": date,
+                },
+            )
 
             ok = isinstance(js, list) and len(js) >= 2 and isinstance(js[0], dict)
             if ok:
                 break
 
             # non-standard payload; backoff and retry
-            wait = 0.75 * (2 ** attempt)
-            print(f"[Q4A] WARNING: Non-standard WB response for {indicator_code} page={page} (attempt {attempt+1}/5). Backoff {wait:.1f}s")
+            wait = 0.75 * (2**attempt)
+            print(
+                f"[Q4A] WARNING: Non-standard WB response for {indicator_code} page={page} (attempt {attempt+1}/5). Backoff {wait:.1f}s"
+            )
             try:
                 preview = str(js)[:200]
             except Exception:
@@ -125,7 +146,9 @@ def fetch_indicator_long(indicator_code: str, value_name: str, years_min: int, y
 
         # if still not ok, stop gracefully (no crash)
         if not (isinstance(js, list) and len(js) >= 2):
-            print(f"[Q4A] ERROR: Giving up on {indicator_code} page={page}. Returning empty/partial data.")
+            print(
+                f"[Q4A] ERROR: Giving up on {indicator_code} page={page}. Returning empty/partial data."
+            )
             break
 
         meta, data = js[0], js[1]
@@ -135,7 +158,9 @@ def fetch_indicator_long(indicator_code: str, value_name: str, years_min: int, y
 
         # data sometimes comes as dict with message
         if isinstance(data, dict) and "message" in data:
-            print(f"[Q4A] WARNING: WB message for {indicator_code}: {data.get('message')}")
+            print(
+                f"[Q4A] WARNING: WB message for {indicator_code}: {data.get('message')}"
+            )
             break
 
         if not isinstance(data, list) or len(data) == 0:
@@ -192,23 +217,40 @@ def main():
         df["co2_mt"] = np.nan
 
     # Clean and order
-    df = df[[
-        "iso3","country","year",
-        "gdp_current_usd","population",
-        "co2_kt","co2_mt","co2_per_capita"
-    ]].sort_values(["iso3","year"]).reset_index(drop=True)
+    df = (
+        df[
+            [
+                "iso3",
+                "country",
+                "year",
+                "gdp_current_usd",
+                "population",
+                "co2_kt",
+                "co2_mt",
+                "co2_per_capita",
+            ]
+        ]
+        .sort_values(["iso3", "year"])
+        .reset_index(drop=True)
+    )
 
     # Basic coverage report
     n_c = df["iso3"].nunique()
     yrs = (int(df["year"].min()), int(df["year"].max()))
     print(f"[Q4A] Panel rows: {len(df)} | Countries: {n_c} | Years range: {yrs}")
     print("[Q4A] Missingness (%):")
-    miss = df[["gdp_current_usd","population","co2_mt","co2_per_capita"]].isna().mean().sort_values(ascending=False)
+    miss = (
+        df[["gdp_current_usd", "population", "co2_mt", "co2_per_capita"]]
+        .isna()
+        .mean()
+        .sort_values(ascending=False)
+    )
     for k, v in miss.items():
         print(f"  - {k}: {v*100:.1f}%")
 
     df.to_parquet(OUT, index=False)
     print("\nSaved:", OUT)
+
 
 if __name__ == "__main__":
     main()

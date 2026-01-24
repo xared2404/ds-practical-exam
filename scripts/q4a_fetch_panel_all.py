@@ -27,7 +27,9 @@ WB_IND = {
     # OJO: CO2 WB está fallando en tu sesión; lo vamos a traer de OWID
 }
 
-OWID_CO2_URL = "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv"
+OWID_CO2_URL = (
+    "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv"
+)
 
 
 def wb_get(url: str, params: dict, max_tries: int = 5) -> list:
@@ -94,7 +96,9 @@ def fetch_owid_co2() -> pd.DataFrame:
     df = df[df["iso3"].str.len() == 3]
 
     # year range
-    df = df[(df["year"] >= YEARS_MIN) & (df["year"] <= YEARS_MAX)].reset_index(drop=True)
+    df = df[(df["year"] >= YEARS_MIN) & (df["year"] <= YEARS_MAX)].reset_index(
+        drop=True
+    )
     return df
 
 
@@ -116,9 +120,14 @@ def main():
 
     # Basic sanity + missingness
     df = df.sort_values(["iso3", "year"]).reset_index(drop=True)
-    miss = (df[["gdp_current_usd", "population", "co2_mt", "co2_per_capita"]].isna().mean() * 100).round(1)
+    miss = (
+        df[["gdp_current_usd", "population", "co2_mt", "co2_per_capita"]].isna().mean()
+        * 100
+    ).round(1)
 
-    print(f"[Q4A] Panel rows: {len(df)} | Countries: {df['iso3'].nunique()} | Years: ({int(df.year.min())},{int(df.year.max())})")
+    print(
+        f"[Q4A] Panel rows: {len(df)} | Countries: {df['iso3'].nunique()} | Years: ({int(df.year.min())},{int(df.year.max())})"
+    )
     print("[Q4A] Missingness (%):")
     for k, v in miss.items():
         print(f"  - {k}: {v}%")
@@ -129,5 +138,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-

@@ -12,6 +12,7 @@ OUTFILE = os.path.join(DATA_PROCESSED, "q4_multicountry_panel.parquet")
 
 START_YEAR = 1995
 
+
 def build_panel():
     print("Root:", ROOT)
     print("Reading:", INFILE)
@@ -37,8 +38,7 @@ def build_panel():
     # Decoupling event
     # --------------------------------------------------
     df["decoupling_event"] = (
-        (df["gdp_growth"] > 0) &
-        (df["co2_pc_change"] < 0)
+        (df["gdp_growth"] > 0) & (df["co2_pc_change"] < 0)
     ).astype(int)
 
     # --------------------------------------------------
@@ -57,10 +57,7 @@ def build_panel():
     ]
 
     df_out = (
-        df[keep_cols]
-        .replace([np.inf, -np.inf], np.nan)
-        .dropna()
-        .reset_index(drop=True)
+        df[keep_cols].replace([np.inf, -np.inf], np.nan).dropna().reset_index(drop=True)
     )
 
     print("Final panel shape:", df_out.shape)
@@ -72,5 +69,3 @@ def build_panel():
 
 if __name__ == "__main__":
     build_panel()
-
-

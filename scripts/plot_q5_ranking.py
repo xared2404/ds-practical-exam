@@ -24,21 +24,21 @@ except ImportError as e:
 
 # Read and prepare
 df = pd.read_csv(csv_path)
-if 'priority_score' not in df.columns or 'iso3' not in df.columns:
+if "priority_score" not in df.columns or "iso3" not in df.columns:
     print("ERROR: CSV does not contain required columns 'iso3' and 'priority_score'")
     sys.exit(4)
 
 # Sort descending and take top 30
-df_sorted = df.sort_values('priority_score', ascending=False).head(30)
+df_sorted = df.sort_values("priority_score", ascending=False).head(30)
 # Ensure plot directory exists
 out_path.parent.mkdir(parents=True, exist_ok=True)
 
 plt.figure(figsize=(8, 10))
-sns.set_style('whitegrid')
+sns.set_style("whitegrid")
 # horizontal bar for better readability
-plt.barh(df_sorted['iso3'][::-1], df_sorted['priority_score'][::-1], color='C0')
-plt.xlabel('priority_score')
-plt.title('Top-30 countries by priority_score (Q5)')
+plt.barh(df_sorted["iso3"][::-1], df_sorted["priority_score"][::-1], color="C0")
+plt.xlabel("priority_score")
+plt.title("Top-30 countries by priority_score (Q5)")
 plt.tight_layout()
 plt.savefig(out_path, dpi=150)
 print(f"Saved figure to {out_path}")

@@ -8,16 +8,16 @@ from pathlib import Path
 import sys
 
 repo_root = Path(__file__).resolve().parents[1]
-md_files = [repo_root / 'README.md'] + sorted((repo_root / 'reports').glob('*.md'))
+md_files = [repo_root / "README.md"] + sorted((repo_root / "reports").glob("*.md"))
 pattern = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
 
 errors = []
 for md in md_files:
-    text = md.read_text(encoding='utf8')
+    text = md.read_text(encoding="utf8")
     for m in pattern.finditer(text):
         path = m.group(1)
         # ignore absolute URLs
-        if path.startswith('http://') or path.startswith('https://'):
+        if path.startswith("http://") or path.startswith("https://"):
             continue
         # resolve relative to the markdown file location
         candidate = (md.parent / path).resolve()

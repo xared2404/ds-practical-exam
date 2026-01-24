@@ -29,19 +29,12 @@ print("Reading:", SCENARIOS_PATH)
 df = pd.read_parquet(PANEL_PATH)
 sc = pd.read_csv(SCENARIOS_PATH)
 
+
 # ---------------------------------------------------------
 # Helper function
 # ---------------------------------------------------------
 def plot_scenarios(
-    hist_df,
-    scen_df,
-    y_hist,
-    y_base,
-    y_nodec,
-    y_strong,
-    ylabel,
-    title,
-    outpath
+    hist_df, scen_df, y_hist, y_base, y_nodec, y_strong, ylabel, title, outpath
 ):
     plt.figure(figsize=(9, 6))
 
@@ -49,31 +42,26 @@ def plot_scenarios(
         h = hist_df[hist_df["iso3"] == iso]
         s = scen_df[scen_df["iso3"] == iso]
 
+        plt.plot(h["year"], h[y_hist], linewidth=2, label=f"{iso} (historical)")
+
         plt.plot(
-            h["year"], h[y_hist],
-            linewidth=2,
-            label=f"{iso} (historical)"
+            s["year"], s[y_base], linestyle="--", linewidth=2, label=f"{iso} – baseline"
         )
 
         plt.plot(
-            s["year"], s[y_base],
-            linestyle="--",
-            linewidth=2,
-            label=f"{iso} – baseline"
-        )
-
-        plt.plot(
-            s["year"], s[y_nodec],
+            s["year"],
+            s[y_nodec],
             linestyle=":",
             linewidth=2,
-            label=f"{iso} – no decoupling"
+            label=f"{iso} – no decoupling",
         )
 
         plt.plot(
-            s["year"], s[y_strong],
+            s["year"],
+            s[y_strong],
             linestyle="-.",
             linewidth=2,
-            label=f"{iso} – strong decoupling"
+            label=f"{iso} – strong decoupling",
         )
 
     plt.xlabel("Year")
@@ -87,6 +75,7 @@ def plot_scenarios(
 
     print("Saved figure:", outpath)
 
+
 # ---------------------------------------------------------
 # FIGURE 1: CO2 total (Mt)
 # ---------------------------------------------------------
@@ -99,7 +88,7 @@ plot_scenarios(
     y_strong="co2_mt_strong",
     ylabel="CO₂ emissions (Mt)",
     title="CO₂ emissions: historical data and scenarios (1990–2035)",
-    outpath=FIG_MT
+    outpath=FIG_MT,
 )
 
 # ---------------------------------------------------------
@@ -114,7 +103,7 @@ plot_scenarios(
     y_strong="co2_pc_strong",
     ylabel="CO₂ emissions per capita (tons/person)",
     title="CO₂ emissions per capita: historical data and scenarios (1990–2035)",
-    outpath=FIG_PC
+    outpath=FIG_PC,
 )
 
 print("Q3.1 figures completed successfully.")
