@@ -1,0 +1,91 @@
+from __future__ import annotations
+
+from pathlib import Path
+import pandas as pd
+
+RAW_WB_DIR = Path("data/raw/worldbank")
+
+
+def _detect_country_cols(df: pd.DataFrame) -> tuple[str, str]:
+    """
+    Intenta detectar columnas de país y código ISO3 en diferentes formatos
+    de exportación de World Bank / DataBank.
+    """
+    cols = [c.strip() for c in df.columns]
+    df.columns = cols
+
+    # Nombres típicos (WDI bulk)
+    if "Country Name" in cols and "Country Code" in cols:
+        return "Country Name", "Country Code"
+
+    # Variantes comunes
+    if "Country" in cols and "Country Code" in cols:
+        return "Country", "Country Code"
+
+    # Si nada coincide, fallamos con mensaje útil
+    raise ValueError(
+        "No se pudieron detectar columnas de país. Columnas disponibles: "
+        + ", ".join(cols[:30])
+    )
+
+
+def load_co2_kt_from_databank(
+    filename: str = "co2_kt_databank.csv",
+    start_year: int = 2010,
+    end_year: int = 2020,
+    indicator_code: str = "EN.ATM.CO2E.KT",
+) -> pd.DataFrame:
+    """
+    Carga CO2 emissions (kt) desde un CSV de DataBank.
+
+    Funciona con 2 formatos:
+    A) Export por indicador (NO trae 'Indicator Code')
+    B) WDI bulk (trae 'Indicator Code' y hay que filtrar)
+    """
+    path = RAW_WB_DIR / filename
+    if not path.exists():
+        raise FileNotFoundError(f"No existe el archivo: {path}")
+
+    # Algunos archivos tienen encabezados largos: probamos sin skip y con skip=4
+    try:
+        df = pd.read_csv(path)
+        if len(df.columns) <= 2:
+            raise ValueError("muy pocas columnas; probando skiprows=4")
+    except Exception:
+        df = pd.read_csv(path, skiprows=4)
+
+    df.columns = df.columns.astype(str).str.strip()
+
+    # Si existe Indicator Code, filtramos; si no, asumimos que ya es CO2
+    if "Indicator Code" in df.columns:
+        df = df[df["Indicator Code"] == indicator_code]
+
+    # Detectar columnas de país
+    country_name_col, country_code_col = _detect_country_cols(df)
+
+    # Detectar columnas de años
+    year_cols = [c for c in df.columns if c.isdigit()]
+    year_cols = [y for y in year_cols if start_year <= int(y) <= end_year]
+    if not year_cols:
+        raise ValueError(
+            "No encontré columnas de años. Revisa el archivo. "
+            f"Columnas: {list(df.columns)[:25]}"
+        )
+
+    # Wide -> long
+    long = df.melt(
+        id_vars=[country_name_col, country_code_col],
+        value_vars=year_cols,
+        var_name="year",
+        value_name="co2_kt",
+    )
+
+    long["year"] = long["year"].astype(int)
+
+    # Limpieza
+    long = long.rename(columns={country_name_col: "country", country_code_col: "iso3"})
+    long["iso3"] = long["iso3"].astype(str).str.strip()
+    long = long.dropna(subset=["co2_kt"])
+
+    # Orden
+    return long[["country", "iso3", "year", "co2_kt"]].sort_values(["iso3", "year"]).reset_index(drop=True)

@@ -257,7 +257,7 @@ models/
 # ======================================================
 
 # Q4A exploratory and experimental scripts
-scripts/q4a/
+scripts/q4a/**
 
 # Dataset construction utilities (not part of final pipeline)
 src/ds_exam/data/build_dataset.py
