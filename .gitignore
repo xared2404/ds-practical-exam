@@ -251,3 +251,13 @@ models/
 .ipynb_checkpoints/
 >>>>>>> 405d6aa (Initial repo structure for DS Practical Exam (Q1-Q5))
 >>>>>>> 27fc50d (Initial repo structure for DS Practical Exam (Q1-Q5))
+
+# ======================================================
+# Project-specific ignores (experimental / non-final)
+# ======================================================
+
+# Q4A exploratory and experimental scripts
+scripts/q4a/
+
+# Dataset construction utilities (not part of final pipeline)
+src/ds_exam/data/build_dataset.py
