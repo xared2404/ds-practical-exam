@@ -4,7 +4,7 @@ Run:
   PYTHONPATH=src python scripts/q5_prioritization.py
 
 Inputs (from Q4):
-  data/processed/q4_features.parquet
+  data/processed/q4a_features.parquet
 
 Outputs:
   data/processed/q5_country_ranking.csv
@@ -22,16 +22,16 @@ DATA = ROOT / "data" / "processed"
 REPORTS = ROOT / "reports"
 
 def load_features():
-    path = DATA / "q4_features.parquet"
+    path = DATA / "q4a_features.parquet"
     if not path.exists():
-        raise SystemExit(f"[Q5] Missing input: {path}\nRun Q4 first to generate q4_features.parquet.")
+        raise SystemExit(f"[Q5] Missing input: {path}\nRun Q4 first to generate q4a_features.parquet.")
     print("Reading:", path)
     df = pd.read_parquet(path)
 
     # sanity
     needed = {"iso3","year","target"}
     if not needed.issubset(df.columns):
-        raise SystemExit(f"[Q5] q4_features.parquet missing required columns: {needed - set(df.columns)}")
+        raise SystemExit(f"[Q5] q4a_features.parquet missing required columns: {needed - set(df.columns)}")
 
     df = df.replace([np.inf, -np.inf], np.nan).dropna().reset_index(drop=True)
     return df

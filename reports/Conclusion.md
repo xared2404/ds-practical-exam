@@ -10,8 +10,6 @@ Scenario simulations (Q3) demonstrated that small differences in decoupling rate
 
 Building on these insights, the classification framework (Q4) showed that emissions regime transitions can be detected using a compact and interpretable set of macro-environmental indicators when temporal structure is respected. Dynamic emissions measures consistently outperformed static economic variables, and explainability analysis confirmed that recent emissions trends—not income levels—are the primary drivers of regime identification.
 
+Building on the empirical and modeling results of Q2–Q4, Q5 shows how regime detection and scenario sensitivity can be operationalized into a decision-oriented prioritization framework, linking predictive analysis to real-world policy allocation under constraints.
+
 Finally, the strategic synthesis (Q5) translated empirical evidence into a decision framework for allocating limited policy and investment resources. Rather than ranking countries by income or emissions levels, the framework emphasizes dynamic readiness, policy leverage, and timing, offering a principled approach to prioritization under real-world constraints.
-
-Taken together, the project advances three central conclusions. First, decarbonization is a dynamic process, not a static function of income or scale. Second, small changes in emissions dynamics matter disproportionately over the long run. Third, effective climate strategy depends less on where emissions are highest and more on where structural conditions and recent trajectories make transition feasible and durable.
-
-By integrating econometric inference, scenario analysis, machine learning, and policy-oriented synthesis, the project provides a coherent empirical narrative and a practical decision framework. It demonstrates how quantitative modeling can move beyond prediction toward actionable insight, supporting more timely, targeted, and effective decarbonization strategies in a heterogeneous global context.

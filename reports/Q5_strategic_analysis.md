@@ -125,3 +125,13 @@ Q5 completes the analytical sequence of the project by translating empirical evi
 Rather than proposing a mechanical ranking of countries, the framework emphasizes timing, momentum, and policy leverage. It highlights that effective decarbonization strategy depends not only on where emissions are highest, but on where structural conditions and recent dynamics make intervention most likely to succeed.
 
 In this sense, Q5 reframes climate investment as a problem of dynamic readiness rather than static need, offering a principled basis for allocating scarce resources in a world of heterogeneous transition pathways.
+
+Q5.6 From Framework to Operational Guidance
+
+The country prioritization ranking presented in this section serves as the operational counterpart to the strategic framework developed in Q5.1–Q5.2.
+
+While the investment typology defines how different countries should be approached in principle, the ranking translates those principles into a concrete ordering that can inform sequencing, budgeting, and portfolio design. By grounding prioritization in observed emissions dynamics and probabilistic regime transition signals, the framework avoids reliance on static indicators such as income level or absolute emissions.
+
+Importantly, the ranking is not intended to be prescriptive or exhaustive. Rather, it provides a data-driven screening tool that helps identify where near-term investments are most likely to succeed, and where alternative strategies—such as institutional reform or long-horizon capacity building—may be more appropriate.
+
+Together, the framework and ranking close the analytical loop from empirical modeling (Q2–Q4) to strategic decision support, illustrating how predictive and classification tools can be deployed in service of real-world policy allocation under constraints.
