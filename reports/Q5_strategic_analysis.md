@@ -55,6 +55,7 @@ Q5 uses this tradeoff to structure investment priorities, rather than relying on
 
 Q5.2 Investment Typology
 
+
 Using the classification results from Q4A, countries can be grouped into three strategic categories. These categories are heuristic rather than mechanical and are intended to support policy judgment, not replace it.
 
 ⸻
@@ -71,15 +72,6 @@ These countries are prime candidates for scaling investments. Marginal capital o
 
 From an investment perspective, this group offers the highest probability-adjusted returns.
 
-The following table summarizes the strategic investment typology derived from the Q4A classification results, linking empirical signals to concrete allocation guidance.
-
-### Table Q5. Strategic Investment Typology Based on Q4A Classification
-
-| Category | Emissions Dynamics | Transition Probability | Policy Leverage | Strategic Priority | Recommended Action |
-|--------|-------------------|------------------------|-----------------|-------------------|-------------------|
-| **High-probability transition countries** | Sustained decline in per-capita emissions (`d_co2_per_capita < 0`) | High and stable across rolling windows | High | **Immediate scaling** | Scale clean-energy investment, accelerate deployment, reinforce existing policies |
-| **Marginal transition countries** | Near-zero or volatile emissions growth | Intermediate or unstable | Very high but uncertain | **Targeted intervention** | Focused subsidies, regulatory tightening, infrastructure and grid investment |
-| **Low-probability transition countries** | Persistent emissions growth | Low across periods | Low in the short run | **Foundational support** | Institutional reform, governance capacity, long-horizon transition planning |
 
 ⸻
 
@@ -111,6 +103,8 @@ This approach avoids locking scarce resources into environments where structural
 
 ## Table 5. Strategic Investment Prioritization Framework
 
+The prioritization framework is formulated from the perspective of a multilateral policy actor or social planner seeking to maximize near- to medium-term decarbonization impact under budget constraints.
+
 | Investment Category | Structural Signals (Q2) | Dynamic Signals (Q4A) | Scenario Leverage (Q3) | Policy Risk | Strategic Recommendation |
 |--------------------|--------------------------|------------------------|-------------------------|-------------|---------------------------|
 | **High-Probability Transition Countries** | Low or declining CO₂–GDP elasticity | Persistent decline in `d_co2_per_capita` and stable high regime probability | High responsiveness to decarbonization scenarios | Low | Scale investments to accelerate ongoing transitions and lock in rapid emissions reductions |
@@ -121,4 +115,13 @@ This approach avoids locking scarce resources into environments where structural
 How to use this table 
 
 This table operationalizes the readiness–impact tradeoff by mapping empirical signals into actionable investment strategies. Rather than ranking countries by income or emissions levels, the framework prioritizes dynamic decarbonization momentum and policy leverage, consistent with the empirical findings of Q2–Q4.
+Policy risk refers to the likelihood that mitigation investments fail to translate into sustained emissions reductions due to structural, institutional, or political constraints, rather than statistical uncertainty.y
 
+
+### Concluding Remarks
+
+Q5 completes the analytical sequence of the project by translating empirical evidence into a structured decision framework. While Q2 establishes the dominance of dynamic over static drivers of emissions, Q3 demonstrates the long-run consequences of small differences in decoupling rates, and Q4 identifies early signals of regime transition, Q5 integrates these insights into a coherent logic for strategic prioritization under constraints.
+
+Rather than proposing a mechanical ranking of countries, the framework emphasizes timing, momentum, and policy leverage. It highlights that effective decarbonization strategy depends not only on where emissions are highest, but on where structural conditions and recent dynamics make intervention most likely to succeed.
+
+In this sense, Q5 reframes climate investment as a problem of dynamic readiness rather than static need, offering a principled basis for allocating scarce resources in a world of heterogeneous transition pathways.

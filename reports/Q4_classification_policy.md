@@ -2,18 +2,18 @@ Q4. Classification, Explainability, and Policy Implications
 
 4.1 Objective and Conceptual Framing
 
-This section develops a supervised classification framework to identify emissions regime transitions across countries. The objective is not to forecast future emissions levels, but to detect structural changes in emissions dynamics that signal a country’s sustained capacity to decouple emissions from economic activity.
+This section develops a supervised classification framework to identify emissions regime transitions across countries. The objective is not to forecast future emissions levels, but to detect structural changes in emissions dynamics that signal a country’s emerging capacity to decouple emissions from economic activity.
 
-Q4 complements the earlier sections along three dimensions:
+Q4 complements the previous sections in a progressive analytical sequence:
 	•	Q2 established that temporal dynamics dominate static income effects in explaining emissions outcomes.
 	•	Q3 demonstrated that long-run emissions trajectories are highly sensitive to small differences in decoupling rates.
 	•	Q4 shifts the focus from projection to pattern recognition, asking whether countries that enter low-emissions-growth regimes share identifiable and interpretable characteristics.
 
-Rather than asking how much emissions will change, Q4 asks:
+Rather than asking how much emissions will change, Q4 addresses a policy-relevant diagnostic question:
 
-Which observable macro-environmental dynamics distinguish countries that successfully reduce emissions, and how early can such transitions be detected?
+Which observable macro-environmental dynamics distinguish countries that begin reducing emissions, and how early can such transitions be detected?
 
-This reframing is directly motivated by policy relevance: early detection of regime shifts allows for more timely and better-targeted interventions.
+This reframing is motivated by policy timing: early identification of regime shifts enables more timely and better-targeted intervention.
 
 ⸻
 
@@ -31,7 +31,7 @@ This reduced-form definition treats observed emissions dynamics as a proxy for a
 	•	technological change, and
 	•	institutional capacity for sustained decarbonization.
 
-Crucially, the target is not a policy variable and should not be interpreted causally. Its purpose is to identify regime transitions, not to attribute them to specific instruments or reforms.
+Crucially, the target does not represent a policy variable and should not be interpreted causally. Its purpose is to identify incipient regime transitions, not to attribute outcomes to specific instruments or reforms.
 
 ⸻
 
@@ -39,7 +39,7 @@ Crucially, the target is not a policy variable and should not be interpreted cau
 
 Motivation
 
-An initial two-country setup (Mexico and the United States) was informative for conceptual validation but limited in external validity. To address this limitation, Q4 is extended into a large-scale multicountry robustness exercise (Q4A).
+An initial two-country setup (Mexico and the United States) was informative for conceptual validation but limited in external validity. To address this constraint, Q4 is extended into a large-scale multicountry robustness exercise (Q4A).
 
 Data Sources
 	•	World Bank: GDP (current USD), population
@@ -49,10 +49,10 @@ Panel Characteristics
 	•	Countries: ~200 non-aggregate economies
 	•	Years: 1990–2023
 	•	Final usable sample (after feature construction and lagging):
-	•	approximately 5,500 country–year observations
+approximately 5,500 country–year observations
 	•	Output: data/processed/q4a_multicountry_panel.parquet
 
-The resulting panel preserves both cross-sectional heterogeneity and temporal ordering, enabling rigorous time-aware validation and reducing the risk of overfitting to idiosyncratic country trajectories.
+The resulting panel preserves both cross-sectional heterogeneity and temporal ordering, strengthening generalizability and enabling rigorous time-aware validation.
 
 ⸻
 
@@ -100,7 +100,7 @@ To avoid information leakage and respect the time structure of the data, evaluat
 	•	Fixed test window: 5 years
 	•	Multiple rolling cutoffs evaluated sequentially
 
-Each test set contains only observations that occur strictly after the corresponding training period.
+Each test set contains only observations occurring strictly after the corresponding training period.
 
 ## Average Performance Across Rolling Splits (Q4A)
 
@@ -109,7 +109,7 @@ Each test set contains only observations that occur strictly after the correspon
 | Random Forest       | ≈ 0.74   | ≈ 0.42    | ≈ 0.34 | ≈ 0.35 |
 | Logistic Regression | ≈ 0.77   | ≈ 0.48    | ≈ 0.01 | ≈ 0.02 |
 
-The Random Forest substantially outperforms the linear benchmark in recall and F1, indicating the presence of nonlinear and interaction-driven structure in emissions dynamics. The lower performance relative to the small-sample baseline highlights the increased difficulty of the multicountry task and confirms that regime detection is not driven by trivial rules.
+The Random Forest substantially outperforms the linear benchmark in recall and F1, indicating the presence of nonlinear and interaction-driven structure in emissions dynamics. The lower overall performance relative to the small-sample baseline reflects the increased difficulty of the multicountry task and confirms that regime detection is not driven by trivial decision rules.
 
 ⸻
 
@@ -117,14 +117,14 @@ The Random Forest substantially outperforms the linear benchmark in recall and F
 
 To interpret model predictions, SHAP (SHapley Additive exPlanations) is applied to the trained Random Forest model.
 
-SHAP values quantify each feature’s marginal contribution to the predicted probability of entering a low-emissions regime.
+SHAP values quantify each feature’s marginal contribution to the predicted probability of entering a low-emissions-growth regime.
 
 Key Findings
-	•	Dynamic emissions variables dominate feature importance rankings
+	•	Dynamic emissions variables dominate feature-importance rankings
 	•	Level variables (GDP, population) play a secondary role
-	•	The sign and magnitude of SHAP values vary across countries and periods, reflecting heterogeneous transition paths
+	•	The sign and magnitude of SHAP values vary across countries and periods, reflecting heterogeneous and path-dependent transition dynamics
 
-Importantly, diagnostic checks confirm that the target is not mechanically encoded by any single feature once lag structures and multicountry variation are introduced. This reinforces the interpretation of the classifier as detecting genuine regime patterns rather than artifacts of construction.
+Diagnostic checks confirm that the target is not mechanically encoded by any single feature once lag structures and multicountry variation are introduced. This supports interpreting the classifier as detecting genuine regime patterns rather than construction artifacts.
 
 ⸻
 
@@ -143,6 +143,8 @@ These findings reinforce the scenario analysis in Q3, where small differences in
 ⸻
 
 4.8 Limitations
+
+Several limitations apply:
 	•	The regime definition is reduced-form and not policy-instrument specific.
 	•	Classification results reflect correlation, not causation.
 	•	Despite the multicountry expansion, data availability remains uneven across regions.
@@ -157,4 +159,10 @@ Q4 demonstrates that emissions regime transitions can be detected using a small,
 
 Taken together, Q2–Q4 provide a coherent empirical narrative:
 
-Economic growth alone does not determine emissions outcomes. What matters is how emissions evolve relative to growth—and how quickly those dynamics change.
+Economic growth alone does not determine emissions outcomes.
+What matters is how emissions evolve relative to growth—and how quickly those dynamics change.
+
+This insight motivates the final step of the analysis: translating regime detection into strategic investment and policy prioritization, developed in Q5.
+
+While Q4 identifies which countries are statistically more likely to enter low-emissions regimes, it does not address how limited financial and policy resources should be allocated across countries. Translating regime detection into strategic prioritization is the focus of Q5.
+

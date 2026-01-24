@@ -228,3 +228,8 @@ The key message is that **decarbonization is a choice, not an automatic outcome 
 From a methodological perspective, the exercise illustrates how econometric models estimated on historical data can be combined with transparent scenario assumptions to inform policy discussions—while also highlighting the importance of robustness analysis and cautious interpretation.
 
 This completes the scenario-based assessment of emissions trajectories. The next section builds on these findings to draw broader conclusions about economic growth, environmental sustainability, and the role of policy in shaping long-run outcomes.
+
+These results motivate a shift from long-run scenario projection to regime detection. If small differences in decoupling rates generate large emissions gaps over time, an immediate policy-relevant question emerges: can countries that are already entering low-emissions regimes be identified early? This question is addressed in Q4.
+
+
+While Q3 demonstrates that small differences in decoupling rates generate large long-run emissions gaps, it does not address whether countries already entering low-emissions regimes can be identified in real time. This motivates a shift from scenario projection to regime detection, developed in Q4.
