@@ -1,125 +1,157 @@
-Q2. Economic Activity, Emissions, and Decoupling Dynamics
+Q2. Predictive Modeling of CO₂ Emissions
 
-(Mexico and the United States, 1990–2023)
+2.1 Research Question and Hypotheses
 
-Q2.1 Objective and Research Question
+Research Question
 
-This section examines the relationship between economic activity and CO₂ emissions in Mexico and the United States over the period 1990–2023.
+How are CO₂ emissions related to economic activity and population size in Mexico and the United States between 1990 and 2023?
 
-The central research question is:
-
-How are CO₂ emissions related to economic growth and population size, and is there evidence of structural decoupling over time?
-
-The analysis serves three purposes:
-	1.	Establish baseline scale and intensity effects between GDP and emissions.
-	2.	Identify the role of time-driven dynamics consistent with decarbonization.
-	3.	Provide empirical foundations for the scenario analysis (Q3) and regime classification (Q4).
+This section evaluates whether economic growth and demographic scale are sufficient to explain emissions dynamics, or whether temporal and structural factors dominate.
 
 ⸻
 
-Q2.2 Data and Econometric Framework
+Model A: Total CO₂ Emissions
 
-A balanced country–year panel is constructed for Mexico and the United States covering 1990–2023 (68 observations).
+Dependent variable
+	•	co2_mt: Total CO₂ emissions (million tonnes)
 
-All models are estimated using Ordinary Least Squares (OLS) with heteroskedasticity-robust (HC3) standard errors.
+Independent variables
+	•	gdp_current_usd: Gross Domestic Product (current USD)
+	•	population: Total population
+	•	year: Linear time trend
+	•	country: Country indicator (USA vs. Mexico)
 
-Two core specifications are considered:
-	•	Model A: Total CO₂ emissions (scale effects)
-	•	Model B: CO₂ emissions per capita (intensity effects)
-
-Additional robustness specifications include country fixed effects and Environmental Kuznets Curve (EKC) tests.
+Hypotheses
+	•	H1: Higher GDP is associated with higher total CO₂ emissions (β₁ > 0)
+	•	H2: Larger population leads to higher total CO₂ emissions (β₂ > 0)
+	•	H3: There is a statistically significant time trend in emissions (β₃ ≠ 0)
+	•	H4: Structural differences exist between Mexico and the United States (β₄ ≠ 0)
 
 ⸻
 
-Q2.3 Model A: Total CO₂ Emissions (Scale Effects)
+Model B: CO₂ Emissions per Capita
 
-Specification
+Dependent variable
+	•	co2_per_capita: CO₂ emissions per person (metric tons)
+
+Independent variables
+	•	gdp_per_capita: GDP per capita
+	•	year: Linear time trend
+	•	country: Country indicator
+
+Hypotheses
+	•	H1b: Higher GDP per capita is associated with higher CO₂ emissions per capita (β₁ > 0)
+	•	H2b: CO₂ emissions per capita change systematically over time, reflecting structural or technological shifts
+
+⸻
+
+Transition to estimation
+
+These hypotheses are evaluated using panel regressions that explicitly distinguish scale effects from intensity effects, allowing emissions dynamics to be decomposed into economic, demographic, and temporal components.
+
+⸻
+
+2.2 Econometric Analysis: OLS Models
+
+Model A Specification: Total Emissions
+
+An Ordinary Least Squares (OLS) model is estimated using a balanced panel of Mexico and the United States for the period 1990–2023:
 
 \text{CO₂}{it} = \beta_0 + \beta_1 \ln(\text{GDP}{it}) + \beta_2 \ln(\text{Population}_{it}) + \beta_3 \text{Year}_t + \beta_4 \text{USA}i + \varepsilon{it}
 
-Key Results
-	•	GDP (log): Positive and highly significant
-→ Economic scale is the dominant driver of total emissions.
-	•	Population (log): Not statistically significant
-→ Population adds little explanatory power once GDP is controlled for.
-	•	Time trend: Negative and highly significant
-→ Indicates gradual decoupling over time.
-	•	Country dummy (USA): Not significant
-→ No structural difference after controlling for scale and time.
-
-Model fit: R² ≈ 0.99
-
-Interpretation
-
-Total emissions are primarily explained by economic scale. However, the negative time trend reveals that emissions grow more slowly than GDP, signaling partial decoupling driven by technological change, energy efficiency, or structural shifts.
+Heteroskedasticity-robust (HC3) standard errors are reported.
 
 ⸻
 
-Q2.4 Model B: CO₂ Emissions per Capita (Intensity Effects)
+Estimation Results (Model A)
+	•	Observations: 68
+	•	R²: 0.994
+	•	Adjusted R²: 0.994
 
-Motivation
+The model explains nearly all variation in total CO₂ emissions, reflecting strong scale and time effects.
 
-Total emissions are mechanically dominated by economic size. To isolate environmental intensity and enable meaningful cross-country comparison, emissions are normalized by population.
+⸻
 
-Specification
+Interpretation
+
+Economic scale (ln GDP)
+The GDP coefficient is positive and statistically significant (p < 0.001). A 1% increase in GDP is associated with a substantial increase in total CO₂ emissions, supporting H1.
+
+Population (ln Population)
+The population coefficient is negative and statistically insignificant. Once GDP and time trends are controlled for, population size adds little explanatory power, leading to rejection of H2 in this specification.
+
+Time trend (Year)
+The coefficient on year is negative and highly significant (p < 0.001), indicating a gradual decline in emissions over time after controlling for scale. This supports H3 and suggests partial decoupling driven by technological or structural change.
+
+Country effect (USA dummy)
+The country dummy is not statistically significant, indicating no structural difference between Mexico and the United States once GDP, population, and time are accounted for. H4 is not supported.
+
+⸻
+
+Diagnostics
+
+Serial correlation and multicollinearity are present, as expected in short panel time-series data. While these features affect coefficient precision, they do not undermine the qualitative conclusions regarding scale and time effects.
+
+⸻
+
+Bridge to Model B
+
+Because total emissions are mechanically dominated by economic scale, this specification provides limited insight into emissions efficiency or structural decarbonization. To address this limitation, an alternative per-capita specification is estimated.
+
+⸻
+
+2.3 Alternative Specification: CO₂ Emissions per Capita
+
+Model B Specification
 
 \text{CO₂pc}{it} = \alpha_0 + \alpha_1 \ln(\text{GDP}{it}) + \alpha_2 \text{Year}_t + \alpha_3 \text{USA}i + u{it}
 
-Key Results
-	•	GDP (log): Positive and statistically significant
-→ Higher income is associated with higher per-capita emissions.
-	•	Time trend: Negative and highly significant
-→ Strong evidence of declining emissions intensity over time.
-	•	USA dummy: Negative and significant
-→ Conditional on income and time, the United States exhibits lower per-capita emissions than Mexico.
+Population is excluded, as it is embedded in the dependent variable.
 
-Model fit: R² ≈ 0.99
+⸻
+
+Estimation Results (Model B)
+	•	Observations: 68
+	•	R²: 0.989
+	•	Robust covariance: HC3
+
+All explanatory variables are statistically significant at the 1% level.
+
+⸻
 
 Interpretation
 
-While economic growth remains carbon-intensive at the per-capita level, emissions intensity declines systematically over time. This suggests that decarbonization operates primarily through dynamic mechanisms, not income-driven thresholds.
+Income effect
+Higher GDP is associated with higher emissions per capita, indicating that economic growth remains carbon-intensive in per-person terms.
+
+Time trend
+The negative and significant time coefficient indicates a structural decline in emissions intensity over time, consistent with gradual decarbonization.
+
+Country effect
+Conditional on GDP and time, the United States exhibits lower per-capita emissions than Mexico, reflecting structural and technological differences.
 
 ⸻
 
-Q2.5 Fixed Effects and EKC Robustness
+2.4 Fixed Effects and EKC Extensions
 
-Country and Year Fixed Effects
+Fixed Effects Benchmark
 
-Introducing country and year fixed effects substantially weakens the GDP–emissions relationship. Once structural heterogeneity and global time shocks are absorbed, income effects lose statistical significance.
+Introducing country and year fixed effects substantially weakens the GDP–emissions relationship, indicating that much of the correlation observed in pooled models is driven by long-run trends and cross-country differences rather than within-country variation.
 
-This indicates that pooled GDP–emissions correlations are largely driven by:
-	•	long-run trends, and
-	•	cross-country structural differences.
+Environmental Kuznets Curve (EKC) Test
 
-Environmental Kuznets Curve (EKC)
-
-Quadratic income specifications do not support the EKC hypothesis:
-	•	Income terms are not statistically significant under fixed effects.
-	•	Estimated signs do not exhibit the inverted-U pattern.
-
-Conclusion:
-There is no evidence that emissions decline automatically beyond an income threshold.
+Quadratic income specifications do not support the EKC hypothesis. Income terms are statistically insignificant once fixed effects are introduced, and estimated signs do not correspond to an inverted-U relationship.
 
 ⸻
 
-Q2.6 Synthesis and Link to Subsequent Sections
+2.5 Synthesis and Transition to Q3
 
-Three core findings emerge:
-	1.	Economic scale matters for emissions levels, but not deterministically.
-	2.	Time dynamics dominate income effects, indicating decoupling driven by technology and policy rather than growth alone.
-	3.	No evidence supports an Environmental Kuznets Curve once structural and temporal confounders are controlled for.
+The econometric evidence yields three central conclusions:
+	1.	Economic scale explains emissions levels, but not emissions dynamics.
+	2.	Time effects dominate income effects in explaining changes in emissions.
+	3.	Structural decoupling is not automatic and cannot be inferred from income alone.
 
-These results directly motivate:
-	•	Q3, where emissions trajectories are simulated under alternative decoupling assumptions.
-	•	Q4, where short-run emissions dynamics are used to classify regime transitions.
-	•	Q5, where investment prioritization leverages dynamic rather than static indicators.
+These findings motivate a shift away from static regression analysis toward dynamic scenario exploration.
+In the next section (Q3), emissions trajectories are simulated under alternative decoupling assumptions to assess how small changes in dynamics translate into large long-run outcomes.
 
-⸻
 
-Q2.7 Conclusion
-
-Q2 demonstrates that emissions outcomes are not mechanically tied to economic growth. While GDP explains emissions scale, sustained reductions arise from dynamic, time-dependent processes rather than income levels.
-
-This insight anchors the broader empirical narrative of the exam:
-
-Growth does not guarantee decarbonization—policy, technology, and timing do.

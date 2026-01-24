@@ -71,6 +71,16 @@ These countries are prime candidates for scaling investments. Marginal capital o
 
 From an investment perspective, this group offers the highest probability-adjusted returns.
 
+The following table summarizes the strategic investment typology derived from the Q4A classification results, linking empirical signals to concrete allocation guidance.
+
+### Table Q5. Strategic Investment Typology Based on Q4A Classification
+
+| Category | Emissions Dynamics | Transition Probability | Policy Leverage | Strategic Priority | Recommended Action |
+|--------|-------------------|------------------------|-----------------|-------------------|-------------------|
+| **High-probability transition countries** | Sustained decline in per-capita emissions (`d_co2_per_capita < 0`) | High and stable across rolling windows | High | **Immediate scaling** | Scale clean-energy investment, accelerate deployment, reinforce existing policies |
+| **Marginal transition countries** | Near-zero or volatile emissions growth | Intermediate or unstable | Very high but uncertain | **Targeted intervention** | Focused subsidies, regulatory tightening, infrastructure and grid investment |
+| **Low-probability transition countries** | Persistent emissions growth | Low across periods | Low in the short run | **Foundational support** | Institutional reform, governance capacity, long-horizon transition planning |
+
 ⸻
 
 2. Marginal Transition Countries

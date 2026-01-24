@@ -214,9 +214,29 @@ __marimo__/
 .venv/
 venv/
 
-# python
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+
+# Data
+data/raw/
+data/processed/
+
+# Scratch code used during development and debugging
+# Kept locally for reproducibility, not part of final submission
+
+# --------------------------------------------------
+# Exploratory / scratch scripts (not part of final pipeline)
+# --------------------------------------------------
+scripts/_test_wb_api.py
+scripts/probe_indicators.py
+scripts/q4_importance.py
+scripts/q4a/
+src/ds_exam/data/build_dataset.py
 
 # data outputs
 data/raw/
