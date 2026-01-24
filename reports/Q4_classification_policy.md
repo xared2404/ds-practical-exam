@@ -15,7 +15,7 @@ Which observable macro-environmental dynamics distinguish countries that begin r
 
 This reframing is motivated by policy timing: early identification of regime shifts enables more timely and better-targeted intervention.
 
-⸻
+---
 
 4.2 Target Variable Definition
 
@@ -30,8 +30,8 @@ Detect country–year regime transitions (entry into low-emissions-growth regime
 ## 2. Target definition
 
 - Binary target at country–year level:
-  - `1`: per-capita CO₂ declines relative to previous year
-  - `0`: per-capita CO₂ flat or increasing
+	- `1`: per-capita CO$_2$ declines relative to previous year
+	- `0`: per-capita CO$_2$ flat or increasing
 
 Note: target is reduced-form (diagnostic), not causal.
 
@@ -39,7 +39,7 @@ Note: target is reduced-form (diagnostic), not causal.
 
 ## 3. Data and panel construction (Q4A)
 
-- Sources: World Bank (GDP, population), OWID (CO₂).
+- Sources: World Bank (GDP, population), OWID (CO$_2$).
 - Panel: ~200 countries, 1990–2023, final sample ≈ 5,500 country–year observations.
 - Output: `data/processed/q4a_multicountry_panel.parquet`.
 
@@ -68,8 +68,8 @@ Validation:
 Performance (average across rolling splits):
 | Model | Accuracy | Precision | Recall | F1 |
 |---|---:|---:|---:|---:|
-| Random Forest | ≈ 0.74 | ≈ 0.42 | ≈ 0.34 | ≈ 0.35 |
-| Logistic Regression | ≈ 0.77 | ≈ 0.48 | ≈ 0.01 | ≈ 0.02 |
+| Random Forest | ~0.74 | ~0.42 | ~0.34 | ~0.35 |
+| Logistic Regression | ~0.77 | ~0.48 | ~0.01 | ~0.02 |
 
 Random Forest improves recall and F1, indicating nonlinear structure.
 
@@ -104,14 +104,14 @@ SHAP explainability and diagnostic plots (see `data/processed/`):
 
 - SHAP summary (dot):
 
-	![SHAP summary dot](../data/processed/q4_shap_summary_dot.png)
+		![SHAP summary dot](outputs/figures/q4_shap_summary_dot.png)
 
 - SHAP summary (bar):
 
-	![SHAP summary bar](../data/processed/q4_shap_summary_bar.png)
+		![SHAP summary bar](outputs/figures/q4_shap_summary_bar.png)
 
 - SHAP dependence (top feature):
 
-	![SHAP dependence top1](../data/processed/q4_shap_dependence_top1.png)
+		![SHAP dependence top1](outputs/figures/q4_shap_dependence_top1.png)
 
 

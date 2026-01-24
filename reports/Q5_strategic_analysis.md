@@ -10,7 +10,7 @@ How should limited financial and policy resources be allocated across countries 
 
 Q5 therefore reframes the analysis from prediction to strategic allocation under constraints, using the models developed earlier as structured decision inputs, not as ends in themselves.
 
-⸻
+---
 
 Q5.1 Integrated Decision Framework
 
@@ -18,12 +18,12 @@ The prioritization logic integrates three complementary signals, each drawn from
 
 1. Structural Decoupling Capacity (Q2)
 
-Countries with lower or declining CO₂–GDP elasticity exhibit structural conditions—such as energy efficiency, sectoral composition, or institutional capacity—that weaken the long-run link between economic growth and emissions.
+Countries with lower or declining CO$_2$–GDP elasticity exhibit structural conditions—such as energy efficiency, sectoral composition, or institutional capacity—that weaken the long-run link between economic growth and emissions.
 
 This dimension captures baseline feasibility:
 whether growth-compatible decarbonization is structurally plausible given a country’s economic configuration.
 
-⸻
+---
 
 2. Scenario Responsiveness (Q3)
 
@@ -32,7 +32,7 @@ Scenario analysis demonstrates that countries differ sharply in how their emissi
 This dimension captures policy leverage:
 how strongly emissions outcomes react to intervention once structural conditions are in place.
 
-⸻
+---
 
 3. Regime Transition Probability (Q4 / Q4A)
 
@@ -41,7 +41,7 @@ The multicountry classification model identifies country–year observations tha
 This dimension captures readiness:
 whether a country appears to be approaching a structural transition point in its emissions trajectory.
 
-⸻
+---
 
 Readiness–Impact Tradeoff
 
@@ -51,14 +51,14 @@ Together, these three signals define a readiness–impact tradeoff:
 
 Q5 uses this tradeoff to structure investment priorities, rather than relying on emissions levels or income rankings alone.
 
-⸻
+---
 
 Q5.2 Investment Typology
 
 
 Using the classification results from Q4A, countries can be grouped into three strategic categories. These categories are heuristic rather than mechanical and are intended to support policy judgment, not replace it.
 
-⸻
+---
 
 1. High-Probability Transition Countries
 
@@ -73,7 +73,7 @@ These countries are prime candidates for scaling investments. Marginal capital o
 From an investment perspective, this group offers the highest probability-adjusted returns.
 
 
-⸻
+---
 
 2. Marginal Transition Countries
 
@@ -87,7 +87,7 @@ These countries benefit most from targeted, high-leverage interventions, such as
 
 They represent higher-variance but potentially high-impact opportunities, where policy design and timing are critical.
 
-⸻
+---
 
 3. Low-Probability Transition Countries
 
@@ -122,7 +122,7 @@ These define a readiness–impact tradeoff used to prioritize investments.
 
 | Investment Category | Structural signals (Q2) | Dynamic signals (Q4A) | Scenario leverage (Q3) | Policy risk | Recommendation |
 |---|---|---|---|---|---|
-| High-probability | Low/declining CO₂–GDP elasticity | Persistent negative `d_co2_per_capita` | High | Low | Scale investments to lock in transitions |
+| High-probability | Low/declining CO$_2$–GDP elasticity | Persistent negative `d_co2_per_capita` | High | Low | Scale investments to lock in transitions |
 | Marginal | Intermediate elasticity | Borderline/unstable regime probability | Moderate–High | Medium | Targeted catalytic interventions |
 | Low-probability | High/persistent elasticity | Sustained emissions growth | Low | High | Prioritize governance and capacity building |
 

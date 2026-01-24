@@ -101,7 +101,7 @@ In practical terms:
 	•	Mid-ranked countries correspond to the “marginal transition” category in Q5 and may require targeted, catalytic interventions.
 	•	Lower-ranked countries are better suited for long-horizon institutional or capacity-building strategies rather than immediate mitigation deployment.
 
-⸻
+---
 
 Important Caveat
 
@@ -121,7 +121,7 @@ To produce a figure from this table (e.g., top-30 bar chart), load the CSV and p
 
 Top-30 countries by `priority_score` (generated from `data/processed/q5_country_ranking.csv`):
 
-![Q5 top-30 priority score](../outputs/figures/q5_top30_priority_score.png)
+![Q5 top-30 priority score](outputs/figures/q5_top30_priority_score.png)
 
 
 

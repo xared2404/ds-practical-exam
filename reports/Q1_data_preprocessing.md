@@ -2,7 +2,7 @@
 
 ## 1. Objective
 
-The objective of the data preprocessing stage is to construct a clean, consistent, and reproducible country–year panel dataset for Mexico (MEX) and the United States (USA) covering the period 1990–2023. This dataset is used in Question 1 to explore descriptive patterns and relationships between economic activity, population, and carbon dioxide (CO₂) emissions.
+The objective of the data preprocessing stage is to construct a clean, consistent, and reproducible country–year panel dataset for Mexico (MEX) and the United States (USA) covering the period 1990–2023. This dataset is used in Question 1 to explore descriptive patterns and relationships between economic activity, population, and carbon dioxide (CO$_2$) emissions.
 
 The preprocessing pipeline integrates data from multiple sources, harmonizes variable definitions, resolves missing values, and produces derived indicators suitable for analysis.
 
@@ -87,11 +87,9 @@ After merging, the dataset is validated to confirm:
 
 A key derived variable is constructed:
 
-### CO₂ per Capita
+### CO$_2$ per Capita
 
-\[
-\text{CO₂ per capita} = \frac{\text{CO₂ emissions (Mt)} \times 10^6}{\text{Population}}
-\]
+CO$_2$ per capita = (CO$_2$ emissions (Mt) × 10^6) / Population
 
 This transformation converts total emissions into per-person terms, enabling meaningful cross-country comparisons across different population scales.
 
@@ -132,11 +130,11 @@ Key diagnostic figures (saved in `data/processed/`):
 
 - CO₂ per capita timeseries (Mexico, USA):
 
-   ![CO₂ per capita timeseries](../data/processed/co2_per_capita_timeseries.png)
+   ![CO$_2$ per capita timeseries](outputs/figures/co2_per_capita_timeseries.png)
 
 - GDP vs CO₂ per capita scatter:
 
-   ![GDP vs CO₂ per capita](../data/processed/gdp_vs_co2_per_capita.png)
+   ![GDP vs CO$_2$ per capita](outputs/figures/gdp_vs_co2_per_capita.png)
 
 # Data Analysis Report (Q1)
 

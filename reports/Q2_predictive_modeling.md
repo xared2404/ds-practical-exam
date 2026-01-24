@@ -1,28 +1,28 @@
-Q2. Predictive Modeling of CO₂ Emissions
+Q2. Predictive Modeling of CO$_2$ Emissions
 
 2.1 Research Question and Hypotheses
 
-# Q2 — Predictive modeling of CO₂ emissions
+# Q2 — Predictive modeling of CO$_2$ emissions
 
 ## 1. Objective
 
-This section evaluates how CO₂ emissions relate to economic activity and population size in Mexico and the United States for 1990–2023. It distinguishes scale effects (total emissions) from intensity effects (per-capita emissions) and tests whether temporal dynamics dominate static income relationships.
+This section evaluates how CO$_2$ emissions relate to economic activity and population size in Mexico and the United States for 1990–2023. It distinguishes scale effects (total emissions) from intensity effects (per-capita emissions) and tests whether temporal dynamics dominate static income relationships.
 
 ---
 
 ## 2. Models and hypotheses
 
-Model A (Total CO₂ emissions)
-- Dependent: `co2_mt` (total CO₂ emissions, Mt)
+Model A (Total CO$_2$ emissions)
+- Dependent: `co2_mt` (total CO$_2$ emissions, Mt)
 - Explanatory: `gdp_current_usd`, `population`, `year`, `country`
 
 Hypotheses:
-- H1: Higher GDP → higher total CO₂ (β1 > 0)
-- H2: Larger population → higher total CO₂ (β2 > 0)
-- H3: Statistically significant time trend exists (β3 ≠ 0)
-- H4: Structural country differences may be present (β4 ≠ 0)
+-- H1: Higher GDP → higher total CO$_2$ (beta1 > 0)
+-- H2: Larger population → higher total CO$_2$ (beta2 > 0)
+-- H3: Statistically significant time trend exists (beta3 != 0)
+-- H4: Structural country differences may be present (beta4 != 0)
 
-Model B (CO₂ per capita)
+Model B (CO$_2$ per capita)
 - Dependent: `co2_per_capita` (tons/person)
 - Explanatory: `gdp_per_capita`, `year`, `country`
 
@@ -43,12 +43,12 @@ Key diagnostics indicate strong explanatory power for scale-based models but pre
 
 Model A (total emissions):
 - Observations: 68
-- R² ≈ 0.99 — scale and time effects explain most variation.
-- Interpretation: GDP has a positive and significant association with total CO₂; the estimated year trend is negative, suggesting partial decoupling over time.
+-- R² ~0.99 — scale and time effects explain most variation.
+- Interpretation: GDP has a positive and significant association with total CO$_2$; the estimated year trend is negative, suggesting partial decoupling over time.
 
 Model B (per-capita):
 - Observations: 68
-- R² ≈ 0.99
+-- R² ~0.99
 - Interpretation: GDP per capita positively correlates with per-capita emissions, but a significant negative time trend indicates improving emissions intensity over time.
 
 Fixed-effects and EKC tests reduce the apparent income effect, pointing to the importance of time and structural factors.
@@ -70,6 +70,6 @@ Estimation Results (Model A)
 
 - GDP vs CO₂ per capita (supporting figure):
 
-  ![GDP vs CO₂ per capita](../data/processed/gdp_vs_co2_per_capita.png)
+	![GDP vs CO$_2$ per capita](outputs/figures/gdp_vs_co2_per_capita.png)
 
 
