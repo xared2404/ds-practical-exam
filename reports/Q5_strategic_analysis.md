@@ -91,49 +91,51 @@ They represent higher-variance but potentially high-impact opportunities, where 
 
 3. Low-Probability Transition Countries
 
-Characteristics
-	•	Persistent positive emissions growth
-	•	Weak or absent decoupling dynamics
-	•	Low classification probabilities across time
+# Q5 — Strategic investment prioritization
 
-Strategic implication
-In these contexts, large-scale mitigation investments are unlikely to deliver meaningful short-run impact. Priority should instead be placed on institutional reform, governance capacity, and long-horizon strategies, rather than immediate capital-intensive deployment.
+## 1. Objective
 
-This approach avoids locking scarce resources into environments where structural conditions are not yet aligned with decarbonization.
+Translate empirical findings (Q2–Q4) into a decision framework for allocating limited mitigation and clean-energy resources across countries.
 
-## Table 5. Strategic Investment Prioritization Framework
+---
 
-The prioritization framework is formulated from the perspective of a multilateral policy actor or social planner seeking to maximize near- to medium-term decarbonization impact under budget constraints.
+## 2. Integrated decision framework
 
-| Investment Category | Structural Signals (Q2) | Dynamic Signals (Q4A) | Scenario Leverage (Q3) | Policy Risk | Strategic Recommendation |
-|--------------------|--------------------------|------------------------|-------------------------|-------------|---------------------------|
-| **High-Probability Transition Countries** | Low or declining CO₂–GDP elasticity | Persistent decline in `d_co2_per_capita` and stable high regime probability | High responsiveness to decarbonization scenarios | Low | Scale investments to accelerate ongoing transitions and lock in rapid emissions reductions |
-| **Marginal Transition Countries** | Intermediate elasticity and partial decoupling | Unstable or borderline regime classification | Moderate to high scenario sensitivity | Medium | Deploy targeted, high-leverage interventions (regulation, subsidies, infrastructure) to tip trajectories |
-| **Low-Probability Transition Countries** | High and persistent CO₂–GDP elasticity | Sustained emissions growth and low regime probability | Low scenario responsiveness | High | Prioritize institutional reform and long-horizon capacity building over short-run mitigation investments |
+Three complementary signals:
+1. Structural decoupling capacity (Q2) — baseline feasibility
+2. Scenario responsiveness (Q3) — policy leverage
+3. Regime transition probability (Q4/Q4A) — readiness
 
+These define a readiness–impact tradeoff used to prioritize investments.
 
-How to use this table 
+---
 
-This table operationalizes the readiness–impact tradeoff by mapping empirical signals into actionable investment strategies. Rather than ranking countries by income or emissions levels, the framework prioritizes dynamic decarbonization momentum and policy leverage, consistent with the empirical findings of Q2–Q4.
-Policy risk refers to the likelihood that mitigation investments fail to translate into sustained emissions reductions due to structural, institutional, or political constraints, rather than statistical uncertainty.
+## 3. Investment typology
 
-Q5.6 From Framework to Operational Guidance
+1. High-probability transition countries — scale investments to accelerate ongoing transitions.
+2. Marginal transition countries — targeted, high-leverage interventions to tip trajectories.
+3. Low-probability transition countries — focus on institutional reform and long-horizon capacity building.
 
-The country prioritization ranking presented in this section serves as the oper$
+---
 
-While the investment typology defines how different countries should be approac$
+## 4. Strategic table (summary)
 
-Importantly, the ranking is not intended to be prescriptive or exhaustive. Rath$
+| Investment Category | Structural signals (Q2) | Dynamic signals (Q4A) | Scenario leverage (Q3) | Policy risk | Recommendation |
+|---|---|---|---|---|---|
+| High-probability | Low/declining CO₂–GDP elasticity | Persistent negative `d_co2_per_capita` | High | Low | Scale investments to lock in transitions |
+| Marginal | Intermediate elasticity | Borderline/unstable regime probability | Moderate–High | Medium | Targeted catalytic interventions |
+| Low-probability | High/persistent elasticity | Sustained emissions growth | Low | High | Prioritize governance and capacity building |
 
-Together, the framework and ranking close the analytical loop from empirical mo$
- 
+---
 
-### Concluding Remarks
+## 5. From framework to operations
 
-Q5 completes the analytical sequence of the project by translating empirical evidence into a structured decision framework. While Q2 establishes the dominance of dynamic over static drivers of emissions, Q3 demonstrates the long-run consequences of small differences in decoupling rates, and Q4 identifies early signals of regime transition, Q5 integrates these insights into a coherent logic for strategic prioritization under constraints.
+The ranking presented in the companion file operationalizes this logic; it is heuristic and intended to inform—not replace—policy judgment. Consider fairness and aggregate mitigation potential alongside readiness when making final allocations.
 
-Rather than proposing a mechanical ranking of countries, the framework emphasizes timing, momentum, and policy leverage. It highlights that effective decarbonization strategy depends not only on where emissions are highest, but on where structural conditions and recent dynamics make intervention most likely to succeed.
+---
 
-In this sense, Q5 reframes climate investment as a problem of dynamic readiness rather than static need, offering a principled basis for allocating scarce resources in a world of heterogeneous transition pathways.
+## 6. Conclusion
+
+Q5 integrates dynamic readiness, scenario leverage, and structural feasibility into a coherent prioritization logic that emphasizes timing and policy leverage over static metrics.
 
 

@@ -19,151 +19,82 @@ This reframing is motivated by policy timing: early identification of regime shi
 
 4.2 Target Variable Definition
 
-Regime-Based Classification
+# Q4 — Classification, explainability, and policy implications
 
-The classification task is defined at the country–year level. The binary target variable captures whether a country enters a low-emissions-growth regime in a given year:
-	•	target = 1: Per-capita CO₂ emissions decline relative to the previous year
-	•	target = 0: Per-capita CO₂ emissions are flat or increasing
+## 1. Objective
 
-This reduced-form definition treats observed emissions dynamics as a proxy for a broader set of underlying mechanisms, including:
-	•	energy-system transitions,
-	•	regulatory tightening,
-	•	technological change, and
-	•	institutional capacity for sustained decarbonization.
+Detect country–year regime transitions (entry into low-emissions-growth regimes) using a supervised classification framework. The goal is diagnostic: identify early signals of decoupling rather than forecast levels.
 
-Crucially, the target does not represent a policy variable and should not be interpreted causally. Its purpose is to identify incipient regime transitions, not to attribute outcomes to specific instruments or reforms.
+---
 
-⸻
+## 2. Target definition
 
-4.3 Multi-Country Panel Construction (Q4A)
+- Binary target at country–year level:
+  - `1`: per-capita CO₂ declines relative to previous year
+  - `0`: per-capita CO₂ flat or increasing
 
-Motivation
+Note: target is reduced-form (diagnostic), not causal.
 
-An initial two-country setup (Mexico and the United States) was informative for conceptual validation but limited in external validity. To address this constraint, Q4 is extended into a large-scale multicountry robustness exercise (Q4A).
+---
 
-Data Sources
-	•	World Bank: GDP (current USD), population
-	•	Our World in Data (OWID): CO₂ emissions (total and per capita)
+## 3. Data and panel construction (Q4A)
 
-Panel Characteristics
-	•	Countries: ~200 non-aggregate economies
-	•	Years: 1990–2023
-	•	Final usable sample (after feature construction and lagging):
-approximately 5,500 country–year observations
-	•	Output: data/processed/q4a_multicountry_panel.parquet
+- Sources: World Bank (GDP, population), OWID (CO₂).
+- Panel: ~200 countries, 1990–2023, final sample ≈ 5,500 country–year observations.
+- Output: `data/processed/q4a_multicountry_panel.parquet`.
 
-The resulting panel preserves both cross-sectional heterogeneity and temporal ordering, strengthening generalizability and enabling rigorous time-aware validation.
+---
 
-⸻
+## 4. Features
 
-4.4 Feature Engineering
+Categories:
+- Levels: `ln_gdp`, `ln_population`, `ln_gdp_pc`, `co2_per_capita`, `ln_co2_intensity`
+- Dynamics: `d_ln_gdp_pc`, `d_co2_per_capita`, `d_ln_co2_intensity`
+- Time control: `year_norm`
 
-The feature set is deliberately compact, interpretable, and theory-consistent, closely mirroring the mechanisms emphasized in Q2 and Q3.
+Dynamic indicators are primary predictors.
 
-Feature Categories
+---
 
-Economic and Demographic Levels
-	•	ln_gdp
-	•	ln_population
-	•	ln_gdp_pc
+## 5. Models and validation
 
-Emissions and Intensity Levels
-	•	co2_per_capita
-	•	ln_co2_intensity
+Models:
+- Logistic regression (baseline linear benchmark)
+- Random Forest classifier (nonlinear benchmark)
 
-Dynamic Indicators (First Differences)
-	•	d_ln_gdp_pc
-	•	d_co2_per_capita
-	•	d_ln_co2_intensity
+Validation:
+- Rolling temporal splits (min train 10 yrs; test 5 yrs) to avoid leakage.
 
-Time Control
-	•	year_norm (normalized year index)
+Performance (average across rolling splits):
+| Model | Accuracy | Precision | Recall | F1 |
+|---|---:|---:|---:|---:|
+| Random Forest | ≈ 0.74 | ≈ 0.42 | ≈ 0.34 | ≈ 0.35 |
+| Logistic Regression | ≈ 0.77 | ≈ 0.48 | ≈ 0.01 | ≈ 0.02 |
 
-Dynamic variables play a central role. Consistent with Q2 and Q3, changes over time dominate static levels in explaining regime transitions, reinforcing the importance of emissions trajectories rather than economic scale alone.
+Random Forest improves recall and F1, indicating nonlinear structure.
 
-Output: data/processed/q4a_features.parquet
+---
 
-⸻
+## 6. Explainability
 
-4.5 Classification Models and Validation Strategy
+- SHAP values applied to Random Forest show dynamic emissions variables dominate feature importance; level variables matter less.
+- SHAP patterns vary across countries, reflecting heterogeneous transition processes.
 
-Two supervised learning models are estimated:
-	1.	Logistic Regression
-A standardized linear benchmark designed to capture average marginal effects.
-	2.	Random Forest Classifier
-A depth-limited, class-weighted ensemble model capable of capturing nonlinear interactions and threshold effects in emissions dynamics.
+---
 
-Temporal Validation (Rolling Splits)
+## 7. Policy interpretation & limitations
 
-To avoid information leakage and respect the time structure of the data, evaluation uses a rolling temporal validation strategy:
-	•	Minimum training window: 10 years
+Key insights:
+1. Dynamics (changes) > levels (GDP/population) for detecting transitions.
+2. Regime shifts reflect decoupling capacity rather than wealth or size.
+3. Monitoring growth rates of emissions provides useful early-warning signals.
+
+Limitations: reduced-form target, correlation not causation, uneven data coverage.
+
+---
+
+## 8. Conclusion
+
+Q4 shows interpretable early-warning signals for regime transitions, supporting the translation into strategic prioritization in Q5.
 	•	Fixed test window: 5 years
-	•	Multiple rolling cutoffs evaluated sequentially
-
-Each test set contains only observations occurring strictly after the corresponding training period.
-
-## Average Performance Across Rolling Splits (Q4A)
-
-| Model               | Accuracy | Precision | Recall | F1   |
-|---------------------|----------|-----------|--------|------|
-| Random Forest       | ≈ 0.74   | ≈ 0.42    | ≈ 0.34 | ≈ 0.35 |
-| Logistic Regression | ≈ 0.77   | ≈ 0.48    | ≈ 0.01 | ≈ 0.02 |
-
-The Random Forest substantially outperforms the linear benchmark in recall and F1, indicating the presence of nonlinear and interaction-driven structure in emissions dynamics. The lower overall performance relative to the small-sample baseline reflects the increased difficulty of the multicountry task and confirms that regime detection is not driven by trivial decision rules.
-
-⸻
-
-4.6 Explainability and Diagnostic Analysis
-
-To interpret model predictions, SHAP (SHapley Additive exPlanations) is applied to the trained Random Forest model.
-
-SHAP values quantify each feature’s marginal contribution to the predicted probability of entering a low-emissions-growth regime.
-
-Key Findings
-	•	Dynamic emissions variables dominate feature-importance rankings
-	•	Level variables (GDP, population) play a secondary role
-	•	The sign and magnitude of SHAP values vary across countries and periods, reflecting heterogeneous and path-dependent transition dynamics
-
-Diagnostic checks confirm that the target is not mechanically encoded by any single feature once lag structures and multicountry variation are introduced. This supports interpreting the classifier as detecting genuine regime patterns rather than construction artifacts.
-
-⸻
-
-4.7 Policy Interpretation
-
-Three policy-relevant insights emerge:
-	1.	Dynamics dominate levels
-Short-run changes in emissions and intensity carry more predictive power than income or population levels.
-	2.	Regime shifts reflect decoupling capacity
-Countries are classified as successful not because they are rich or small, but because their emissions trajectories change direction.
-	3.	Early-warning signals for policy
-Monitoring emissions growth rates provides earlier and more informative signals of structural transition than level-based indicators.
-
-These findings reinforce the scenario analysis in Q3, where small differences in decoupling rates generated large long-run emissions gaps.
-
-⸻
-
-4.8 Limitations
-
-Several limitations apply:
-	•	The regime definition is reduced-form and not policy-instrument specific.
-	•	Classification results reflect correlation, not causation.
-	•	Despite the multicountry expansion, data availability remains uneven across regions.
-
-Nevertheless, the consistency of results across econometric (Q2), scenario-based (Q3), and machine-learning (Q4) approaches supports the robustness of the core conclusions.
-
-⸻
-
-4.9 Conclusion
-
-Q4 demonstrates that emissions regime transitions can be detected using a small, interpretable set of macro-environmental indicators when temporal structure is properly respected. Dynamic emissions measures consistently outperform static economic variables, and explainability analysis confirms their central role.
-
-Taken together, Q2–Q4 provide a coherent empirical narrative:
-
-Economic growth alone does not determine emissions outcomes.
-
-What matters is how emissions evolve relative to growth—and how quickly those dynamics change.
-
-This insight motivates the final step of the analysis: translating regime detection into strategic investment and policy prioritization, developed in Q5.
-
-While Q4 identifies which countries are statistically more likely to enter low-emissions regimes, it does not address how limited financial and policy resources should be allocated across countries. Translating regime detection into strategic prioritization is the focus of Q5.
 

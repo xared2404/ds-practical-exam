@@ -1,53 +1,69 @@
-###Q5 Country Prioritization Ranking
 
-This section presents a country-level prioritization ranking that operationalizes the strategic framework developed in Q5, using regime transition probabilities estimated in Q4A.
+# Q5 — Country prioritization ranking
 
-The ranking is designed for policymakers, multilateral institutions, and strategic planners seeking to allocate limited mitigation and clean-energy resources under constraints. It should be interpreted as a measure of transition readiness, not as a ranking of emissions levels, environmental performance, or historical responsibility.
+## 1. Purpose
 
-⸻
+Translate probabilistic regime detection (Q4A) into a practical prioritization tool for policymakers and multilateral institutions. The ranking measures transition readiness, not aggregate mitigation potential or fairness.
 
-Purpose and Scope
+---
 
-The objective of this ranking is to translate probabilistic regime detection into a practical allocation tool. Rather than forecasting emissions or ranking countries by income or size, the table identifies countries where investments are most likely to accelerate and lock in ongoing decarbonization dynamics.
+## 2. Construction
 
-Importantly:
-	•	The ranking reflects readiness for transition, not aggregate mitigation potential.
-	•	It complements—rather than replaces—the conceptual typology and decision logic developed in Q5.1–Q5.2.
-	•	Results should be interpreted jointly with structural (Q2) and scenario-based (Q3) evidence.
+- Primary component: average predicted transition probability in the recent evaluation window (`avg_p_transition_recentN`).
+- Diagnostic: recent `d_co2_per_capita` used to check consistency.
+- Composite priority score ranks countries by readiness.
 
-⸻
+---
 
-Construction of the Ranking
+## 3. Interpretation
 
-Countries are ranked using a simple, interpretable composite indicator based primarily on model-based regime transition probabilities estimated in Q4A.
+- High-ranked countries: persistent declines in per-capita emissions, stable high predicted probabilities.
+- Mid-ranked: borderline or volatile signals; candidate for catalytic interventions.
+- Low-ranked: weak or volatile signals; prioritize institutional capacity building.
 
-The ranking is driven by:
-	•	Average predicted probability of transition in the most recent evaluation window (avg_p_transition_recentN), which serves as the primary component of the priority score.
-	•	Recent emissions dynamics, particularly changes in per-capita CO₂ emissions (d_co2_per_capita), used as a diagnostic and consistency check rather than as a direct mechanical weight.
+---
 
-The resulting priority score captures how consistently and strongly a country exhibits signals associated with entry into a low-emissions-growth regime in recent years.
+## 4. Example ranking (top 30)
 
-⸻
+| rank | iso3 | priority_score | avg_p_transition_recentN | latest_year | latest_p_transition | avg_d_co2_per_capita_recentN |
+|---:|:---:|---:|---:|---:|---:|---:|
+| 1 | CHE | 0.897 | 0.897 | 2018 | 0.90 | |
+| 2 | LUX | 0.884 | 0.884 | 2018 | 0.887 | |
+| 3 | SWE | 0.884 | 0.884 | 2018 | 0.890 | |
+| 4 | DNK | 0.869 | 0.869 | 2018 | 0.878 | |
+| 5 | GBR | 0.862 | 0.862 | 2018 | 0.869 | |
+| 6 | HKG | 0.855 | 0.855 | 2018 | 0.885 | |
+| 7 | BMU | 0.844 | 0.844 | 2018 | 0.876 | |
+| 8 | AUT | 0.842 | 0.842 | 2018 | 0.857 | |
+| 9 | NOR | 0.841 | 0.841 | 2018 | 0.868 | |
+| 10 | FIN | 0.841 | 0.841 | 2018 | 0.833 | |
+| 11 | ISR | 0.837 | 0.837 | 2018 | 0.843 | |
+| 12 | IRL | 0.836 | 0.836 | 2018 | 0.868 | |
+| 13 | LIE | 0.832 | 0.832 | 2018 | 0.794 | |
+| 14 | FRA | 0.831 | 0.831 | 2018 | 0.876 | |
+| 15 | BEL | 0.827 | 0.827 | 2018 | 0.828 | |
+| 16 | NLD | 0.825 | 0.825 | 2018 | 0.839 | |
+| 17 | DEU | 0.823 | 0.823 | 2018 | 0.841 | |
+| 18 | NZL | 0.818 | 0.818 | 2018 | 0.837 | |
+| 19 | SGP | 0.818 | 0.818 | 2018 | 0.822 | |
+| 20 | JPN | 0.795 | 0.795 | 2018 | 0.845 | |
+| 21 | ISL | 0.781 | 0.781 | 2018 | 0.825 | |
+| 22 | MAC | 0.779 | 0.779 | 2018 | 0.702 | |
+| 23 | ARE | 0.744 | 0.744 | 2018 | 0.720 | |
+| 24 | AUS | 0.743 | 0.743 | 2018 | 0.762 | |
+| 25 | AND | 0.732 | 0.732 | 2018 | 0.756 | |
+| 26 | TTO | 0.728 | 0.728 | 2018 | 0.748 | |
+| 27 | CUW | 0.724 | 0.724 | 2018 | 0.661 | |
+| 28 | ITA | 0.717 | 0.717 | 2018 | 0.755 | |
+| 29 | CAN | 0.709 | 0.709 | 2018 | 0.720 | |
+| 30 | ESP | 0.687 | 0.687 | 2018 | 0.703 | |
 
-Interpretation Guidance
+---
 
-Higher-ranked countries tend to exhibit:
-	•	Persistent or stable declines in per-capita emissions,
-	•	High and stable predicted transition probabilities across recent periods,
-	•	Emissions dynamics consistent with structural decoupling rather than short-lived shocks.
+## 5. Caveats
 
-Lower-ranked countries typically display weaker or more volatile signals, suggesting lower short-run readiness for rapid decarbonization acceleration.
+This ranking does not reflect aggregate mitigation potential or equity considerations. Use it alongside Q2/Q3 evidence and policy judgment.
 
-Crucially, priority is not assigned based on income level, country size, or absolute emissions, but on dynamic decarbonization momentum.
-
-
-###Country Prioritization Table
-
-
-|   rank | iso3   |   priority_score |   avg_p_transition_recentN |   latest_year |   latest_p_transition | avg_d_co2_per_capita_recentN   |
-|-------:|:-------|-----------------:|---------------------------:|--------------:|----------------------:|:-------------------------------|
-|      1 | CHE    |            0.897 |                      0.897 |          2018 |                 0.9   |                                |
-|      2 | LUX    |            0.884 |                      0.884 |          2018 |                 0.887 |                                |
 |      3 | SWE    |            0.884 |                      0.884 |          2018 |                 0.89  |                                |
 |      4 | DNK    |            0.869 |                      0.869 |          2018 |                 0.878 |                                |
 |      5 | GBR    |            0.862 |                      0.862 |          2018 |                 0.869 |                                |
