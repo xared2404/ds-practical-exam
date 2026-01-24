@@ -1,5 +1,3 @@
-Q5. Ranking
-
 ## Q5 — Ranking of policy priorities
 
 ### Data
