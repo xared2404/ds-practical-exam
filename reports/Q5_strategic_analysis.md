@@ -115,8 +115,18 @@ The prioritization framework is formulated from the perspective of a multilatera
 How to use this table 
 
 This table operationalizes the readiness–impact tradeoff by mapping empirical signals into actionable investment strategies. Rather than ranking countries by income or emissions levels, the framework prioritizes dynamic decarbonization momentum and policy leverage, consistent with the empirical findings of Q2–Q4.
-Policy risk refers to the likelihood that mitigation investments fail to translate into sustained emissions reductions due to structural, institutional, or political constraints, rather than statistical uncertainty.y
+Policy risk refers to the likelihood that mitigation investments fail to translate into sustained emissions reductions due to structural, institutional, or political constraints, rather than statistical uncertainty.
 
+Q5.6 From Framework to Operational Guidance
+
+The country prioritization ranking presented in this section serves as the oper$
+
+While the investment typology defines how different countries should be approac$
+
+Importantly, the ranking is not intended to be prescriptive or exhaustive. Rath$
+
+Together, the framework and ranking close the analytical loop from empirical mo$
+ 
 
 ### Concluding Remarks
 
@@ -126,12 +136,4 @@ Rather than proposing a mechanical ranking of countries, the framework emphasize
 
 In this sense, Q5 reframes climate investment as a problem of dynamic readiness rather than static need, offering a principled basis for allocating scarce resources in a world of heterogeneous transition pathways.
 
-Q5.6 From Framework to Operational Guidance
 
-The country prioritization ranking presented in this section serves as the operational counterpart to the strategic framework developed in Q5.1–Q5.2.
-
-While the investment typology defines how different countries should be approached in principle, the ranking translates those principles into a concrete ordering that can inform sequencing, budgeting, and portfolio design. By grounding prioritization in observed emissions dynamics and probabilistic regime transition signals, the framework avoids reliance on static indicators such as income level or absolute emissions.
-
-Importantly, the ranking is not intended to be prescriptive or exhaustive. Rather, it provides a data-driven screening tool that helps identify where near-term investments are most likely to succeed, and where alternative strategies—such as institutional reform or long-horizon capacity building—may be more appropriate.
-
-Together, the framework and ranking close the analytical loop from empirical modeling (Q2–Q4) to strategic decision support, illustrating how predictive and classification tools can be deployed in service of real-world policy allocation under constraints.

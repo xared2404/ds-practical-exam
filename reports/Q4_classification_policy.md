@@ -160,6 +160,7 @@ Q4 demonstrates that emissions regime transitions can be detected using a small,
 Taken together, Q2–Q4 provide a coherent empirical narrative:
 
 Economic growth alone does not determine emissions outcomes.
+
 What matters is how emissions evolve relative to growth—and how quickly those dynamics change.
 
 This insight motivates the final step of the analysis: translating regime detection into strategic investment and policy prioritization, developed in Q5.
