@@ -30,8 +30,8 @@ Detect country–year regime transitions (entry into low-emissions-growth regime
 ## 2. Target definition
 
 - Binary target at country–year level:
-	- `1`: per-capita CO$_2$ declines relative to previous year
-	- `0`: per-capita CO$_2$ flat or increasing
+	- `1`: per-capita CO₂ declines relative to previous year
+	- `0`: per-capita CO₂ flat or increasing
 
 Note: target is reduced-form (diagnostic), not causal.
 
@@ -39,7 +39,7 @@ Note: target is reduced-form (diagnostic), not causal.
 
 ## 3. Data and panel construction (Q4A)
 
-- Sources: World Bank (GDP, population), OWID (CO$_2$).
+- Sources: World Bank (GDP, population), OWID (CO₂).
 - Panel: ~200 countries, 1990–2023, final sample ≈ 5,500 country–year observations.
 - Output: `data/processed/q4a_multicountry_panel.parquet`.
 
@@ -89,7 +89,7 @@ Categorize policy measures (pricing, regulation, R&D support) according to expec
 
 ### Figures
 
-	![Policy matrix](outputs/figures/policy_matrix.png)
+	![Policy matrix](reports/figures/policy_matrix.png)
 
 
 ## 8. Conclusion
@@ -103,14 +103,14 @@ SHAP explainability and diagnostic plots (see `data/processed/`):
 
 - SHAP summary (dot):
 
-		![SHAP summary dot](outputs/figures/q4_shap_summary_dot.png)
+		![SHAP summary dot](reports/figures/q4_shap_summary_dot.png)
 
 - SHAP summary (bar):
 
-		![SHAP summary bar](outputs/figures/q4_shap_summary_bar.png)
+		![SHAP summary bar](reports/figures/q4_shap_summary_bar.png)
 
 - SHAP dependence (top feature):
 
-		![SHAP dependence top1](outputs/figures/q4_shap_dependence_top1.png)
+		![SHAP dependence top1](reports/figures/q4_shap_dependence_top1.png)
 
 

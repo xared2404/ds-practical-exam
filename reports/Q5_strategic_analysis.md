@@ -3,7 +3,7 @@ Q5. Strategic analysis and top priorities
 ## 5. Q5 — Strategic analysis
 ### Objective
 
-Rank policy levers and strategic priorities according to expected CO$_2$ reduction and political feasibility.
+Rank policy levers and strategic priorities according to expected CO₂ reduction and political feasibility.
 ### Method
 
 - Use the ranking produced in `data/processed/q5_ranking.csv`.
@@ -13,7 +13,7 @@ Rank policy levers and strategic priorities according to expected CO$_2$ reducti
 - Top priorities: renewable grid investment, energy efficiency standards, industrial emissions controls.
 ### Figures
 
-	![Q5 top priorities](outputs/figures/q5_top30_priority_score.png)
+	![Q5 top priorities](reports/figures/q5_top30_priority_score.png)
 ###Q5. Strategic Investment Prioritization
 
 Objective
@@ -34,7 +34,7 @@ The prioritization logic integrates three complementary signals, each drawn from
 
 1. Structural Decoupling Capacity (Q2)
 
-Countries with lower or declining CO$_2$–GDP elasticity exhibit structural conditions—such as energy efficiency, sectoral composition, or institutional capacity—that weaken the long-run link between economic growth and emissions.
+Countries with lower or declining CO₂–GDP elasticity exhibit structural conditions—such as energy efficiency, sectoral composition, or institutional capacity—that weaken the long-run link between economic growth and emissions.
 
 This dimension captures baseline feasibility:
 whether growth-compatible decarbonization is structurally plausible given a country’s economic configuration.
@@ -138,7 +138,7 @@ These define a readiness–impact tradeoff used to prioritize investments.
 
 | Investment Category | Structural signals (Q2) | Dynamic signals (Q4A) | Scenario leverage (Q3) | Policy risk | Recommendation |
 |---|---|---|---|---|---|
-| High-probability | Low/declining CO$_2$–GDP elasticity | Persistent negative `d_co2_per_capita` | High | Low | Scale investments to lock in transitions |
+| High-probability | Low/declining CO₂–GDP elasticity | Persistent negative `d_co2_per_capita` | High | Low | Scale investments to lock in transitions |
 | Marginal | Intermediate elasticity | Borderline/unstable regime probability | Moderate–High | Medium | Targeted catalytic interventions |
 | Low-probability | High/persistent elasticity | Sustained emissions growth | Low | High | Prioritize governance and capacity building |
 
@@ -160,7 +160,7 @@ The operational ranking and derived datasets are saved under `data/processed/`. 
 
 - `data/processed/q5_country_ranking.csv` — country prioritization scores and components (readiness, recent dynamics, composite score).
 
-If you prefer a visual representation of the ranking, generate a bar chart from `q5_country_ranking.csv` and save it into `outputs/figures/` for inclusion here.
+If you prefer a visual representation of the ranking, generate a bar chart from `q5_country_ranking.csv` and save it into `reports/figures/` for inclusion here.
 
 
 

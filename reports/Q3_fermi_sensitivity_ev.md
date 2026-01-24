@@ -1,6 +1,6 @@
 # Q3. Scenario Analysis and Projections
 
-This section develops forward-looking CO$_2$ emissions projections for Mexico and the United States, building directly on the econometric models estimated in Q2. The objective is to assess how alternative assumptions regarding economic growth and decarbonization translate into divergent emissions trajectories over the period 2024–2035.
+This section develops forward-looking CO₂ emissions projections for Mexico and the United States, building directly on the econometric models estimated in Q2. The objective is to assess how alternative assumptions regarding economic growth and decarbonization translate into divergent emissions trajectories over the period 2024–2035.
 
 All projections rely on a balanced country–year panel covering 1990–2023 and are explicitly interpreted as **scenario-based projections**, not point forecasts.
 
@@ -21,23 +21,23 @@ Q3. Scenario projections and sensitivity
 
 ### Objective
 
-Produce scenario projections of CO$_2$ emissions under alternative GDP-growth and decarbonization scenarios. Use a simple projection model: baseline growth + gradual intensity improvements.
+Produce scenario projections of CO₂ emissions under alternative GDP-growth and decarbonization scenarios. Use a simple projection model: baseline growth + gradual intensity improvements.
 
 ***
 
 ### Method
 
 - Baseline: annual GDP growth rates by country (historical mean) and population projections.
-- Intensity: assume linear per-capita CO$_2` improvements of 0.5%–2% per year.
+- Intensity: assume linear per-capita CO₂ improvements of 0.5%–2% per year.
 - Monte Carlo: 1,000 draws for growth and intensity trajectories to produce confidence intervals.
 
 ***
 
 ### Results
 
-- Baseline median projection (2035): +10% total CO$_2` from 2023
-- Aggressive decarbonization (2% annual improvement): −5% total CO$_2` by 2035
-- Unmitigated growth: +25% total CO$_2` by 2035
+- Baseline median projection (2035): +10% total CO₂ from 2023
+- Aggressive decarbonization (2% annual improvement): −5% total CO₂ by 2035
+- Unmitigated growth: +25% total CO₂ by 2035
 
 ***
 
@@ -47,7 +47,7 @@ Scenario uncertainty is dominated by intensity assumptions; GDP growth uncertain
 
 ## Figures
 
-	![Q3 projection fan](outputs/figures/q3_projection_fan.png)
+	![Q3 projection fan](reports/figures/q3_projection_fan.png)
 
 
 
@@ -76,15 +76,15 @@ This completes the scenario-based assessment of emissions trajectories. The next
 
 Representative figures (stored in `data/processed/`):
 
-- Baseline total CO$_2$ projections (2035, Mt):
+- Baseline total CO₂ projections (2035, Mt):
 
-		![Q3 baseline CO2 Mt 2035](outputs/figures/q3_baseline_co2_mt_2035.png)
+		![Q3 baseline CO2 Mt 2035](reports/figures/q3_baseline_co2_mt_2035.png)
 
-- Scenario comparisons (total CO$_2$, 2035, Mt):
-		![Q3 scenarios CO2 Mt 2035](outputs/figures/q3_scenarios_co2_mt_2035.png)
+- Scenario comparisons (total CO₂, 2035, Mt):
+		![Q3 scenarios CO2 Mt 2035](reports/figures/q3_scenarios_co2_mt_2035.png)
 
 - Per-capita projections (example):
-		![Q3 baseline CO2 per capita 2035](outputs/figures/q3_baseline_co2_pc_2035.png)
+		![Q3 baseline CO2 per capita 2035](reports/figures/q3_baseline_co2_pc_2035.png)
 
 
 

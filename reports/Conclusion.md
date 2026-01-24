@@ -1,6 +1,6 @@
 # Conclusion
 
-This project used a layered empirical strategy—econometrics (Q2), scenario projection (Q3), classification and explainability (Q4), and decision-oriented synthesis (Q5)—to study how economic growth and dynamics shape CO$_2$ emissions.
+This project used a layered empirical strategy—econometrics (Q2), scenario projection (Q3), classification and explainability (Q4), and decision-oriented synthesis (Q5)—to study how economic growth and dynamics shape CO₂ emissions.
 
 Key conclusions:
 
