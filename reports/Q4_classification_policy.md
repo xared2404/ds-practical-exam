@@ -87,10 +87,6 @@ Categorize policy measures (pricing, regulation, R&D support) according to expec
 
 ***
 
-### Figures
-
-	![Policy matrix](figures/policy_matrix.png)
-
 
 ## 8. Conclusion
 
