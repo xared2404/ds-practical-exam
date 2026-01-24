@@ -47,7 +47,7 @@ Scenario uncertainty is dominated by intensity assumptions; GDP growth uncertain
 
 ## Figures
 
-	![Q3 projection fan](reports/figures/q3_projection_fan.png)
+	![Q3 projection fan](figures/q3_projection_fan.png)
 
 
 
@@ -78,13 +78,13 @@ Representative figures (stored in `data/processed/`):
 
 - Baseline total CO₂ projections (2035, Mt):
 
-		![Q3 baseline CO2 Mt 2035](reports/figures/q3_baseline_co2_mt_2035.png)
+		![Q3 baseline CO2 Mt 2035](figures/q3_baseline_co2_mt_2035.png)
 
 - Scenario comparisons (total CO₂, 2035, Mt):
-		![Q3 scenarios CO2 Mt 2035](reports/figures/q3_scenarios_co2_mt_2035.png)
+	![Q3 scenarios CO2 Mt 2035](figures/q3_scenarios_co2_mt_2035.png)
 
 - Per-capita projections (example):
-		![Q3 baseline CO2 per capita 2035](reports/figures/q3_baseline_co2_pc_2035.png)
+	![Q3 baseline CO2 per capita 2035](figures/q3_baseline_co2_pc_2035.png)
 
 
 

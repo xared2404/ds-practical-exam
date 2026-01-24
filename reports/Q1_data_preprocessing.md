@@ -179,11 +179,11 @@ Key diagnostic figures (saved in `data/processed/`):
 
 - CO₂ per capita timeseries (Mexico, USA):
 
-   ![CO₂ per capita timeseries](reports/figures/co2_per_capita_timeseries.png)
+   ![CO₂ per capita timeseries](figures/co2_per_capita_timeseries.png)
 
 - GDP vs CO₂ per capita scatter:
 
-   ![GDP vs CO₂ per capita](reports/figures/gdp_vs_co2_per_capita.png)
+   ![GDP vs CO₂ per capita](figures/gdp_vs_co2_per_capita.png)
 
 # Data Analysis Report (Q1)
 

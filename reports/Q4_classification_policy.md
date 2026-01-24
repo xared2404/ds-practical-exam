@@ -89,7 +89,7 @@ Categorize policy measures (pricing, regulation, R&D support) according to expec
 
 ### Figures
 
-	![Policy matrix](reports/figures/policy_matrix.png)
+	![Policy matrix](figures/policy_matrix.png)
 
 
 ## 8. Conclusion
@@ -103,14 +103,14 @@ SHAP explainability and diagnostic plots (see `data/processed/`):
 
 - SHAP summary (dot):
 
-		![SHAP summary dot](reports/figures/q4_shap_summary_dot.png)
+		![SHAP summary dot](figures/q4_shap_summary_dot.png)
 
 - SHAP summary (bar):
 
-		![SHAP summary bar](reports/figures/q4_shap_summary_bar.png)
+		![SHAP summary bar](figures/q4_shap_summary_bar.png)
 
 - SHAP dependence (top feature):
 
-		![SHAP dependence top1](reports/figures/q4_shap_dependence_top1.png)
+		![SHAP dependence top1](figures/q4_shap_dependence_top1.png)
 
 

@@ -13,7 +13,7 @@ Rank policy levers and strategic priorities according to expected CO₂ reductio
 - Top priorities: renewable grid investment, energy efficiency standards, industrial emissions controls.
 ### Figures
 
-	![Q5 top priorities](reports/figures/q5_top30_priority_score.png)
+	![Q5 top priorities](figures/q5_top30_priority_score.png)
 ###Q5. Strategic Investment Prioritization
 
 Objective
@@ -160,7 +160,7 @@ The operational ranking and derived datasets are saved under `data/processed/`. 
 
 - `data/processed/q5_country_ranking.csv` — country prioritization scores and components (readiness, recent dynamics, composite score).
 
-If you prefer a visual representation of the ranking, generate a bar chart from `q5_country_ranking.csv` and save it into `reports/figures/` for inclusion here.
+If you prefer a visual representation of the ranking, generate a bar chart from `q5_country_ranking.csv` and save it into `figures/` for inclusion here.
 
 
 

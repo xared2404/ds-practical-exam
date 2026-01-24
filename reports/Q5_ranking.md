@@ -128,13 +128,13 @@ The ranking table used to produce the example above is available as a CSV in `da
 
 `data/processed/q5_country_ranking.csv`
 
-To produce a figure from this table (e.g., top-30 bar chart), load the CSV and plot `priority_score` by `iso3` and save the output in `reports/figures/`.
+To produce a figure from this table (e.g., top-30 bar chart), load the CSV and plot `priority_score` by `iso3` and save the output in `figures/`.
 
 ## Figure (Top-30 priority score)
 
 Top-30 countries by `priority_score` (generated from `data/processed/q5_country_ranking.csv`):
 
-![Q5 top-30 priority score](reports/figures/q5_top30_priority_score.png)
+![Q5 top-30 priority score](figures/q5_top30_priority_score.png)
 
 
 

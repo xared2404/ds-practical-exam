@@ -94,6 +94,6 @@ Estimation Results (Model A)
 
 - GDP vs CO₂ per capita (supporting figure):
 
-	![GDP vs CO₂ per capita](reports/figures/gdp_vs_co2_per_capita.png)
+	![GDP vs CO₂ per capita](figures/gdp_vs_co2_per_capita.png)
 
 
