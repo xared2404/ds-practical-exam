@@ -17,10 +17,6 @@ This reframing is motivated by policy timing: early identification of regime shi
 
 ---
 
-4.2 Target Variable Definition
-
-# Q4 — Classification, explainability, and policy implications
-
 ## 1. Objective
 
 Detect country–year regime transitions (entry into low-emissions-growth regimes) using a supervised classification framework. The goal is diagnostic: identify early signals of decoupling rather than forecast levels.
