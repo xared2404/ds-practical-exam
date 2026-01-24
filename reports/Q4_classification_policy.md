@@ -1,10 +1,10 @@
-##Q4. Classification, Explainability, and Policy Implications
+## Q4. Classification, Explainability, and Policy Implications
 
-4.1 Objective and Conceptual Framing
+## Objective and Conceptual Framing
 
 This section develops a supervised classification framework to identify emissions regime transitions across countries. The objective is not to forecast future emissions levels, but to detect structural changes in emissions dynamics that signal a country’s emerging capacity to decouple emissions from economic activity.
 
-Q4 complements the previous sections in a progressive analytical sequence:
+Q4 complements the previous sections in a progressive analytical sequence: 
 - Q2 established that temporal dynamics dominate static income effects in explaining emissions outcomes.
 - Q3 demonstrated that long-run emissions trajectories are highly sensitive to small differences in decoupling rates.
 - Q4 shifts the focus from projection to pattern recognition, asking whether countries that enter low-emissions-growth regimes share identifiable and interpretable characteristics.
