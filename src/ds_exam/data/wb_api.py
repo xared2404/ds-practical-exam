@@ -60,8 +60,35 @@ class WorldBankClient:
 
             data = r.json()
 
-            if isinstance(data, dict) and "message" in data:
-                raise RuntimeError(f"World Bank API error: {data['message']}")
+            # World Bank error payloads have a few common shapes. Try to
+            # extract a human-readable message if present and raise a
+            # RuntimeError with that message to aid debugging.
+            def _extract_wb_message(payload: Any) -> Optional[str]:
+                try:
+                    if isinstance(payload, dict) and "message" in payload:
+                        msg = payload["message"]
+                    elif isinstance(payload, list) and payload and isinstance(payload[0], dict) and "message" in payload[0]:
+                        msg = payload[0]["message"]
+                    else:
+                        return None
+
+                    if isinstance(msg, str):
+                        return msg
+                    if isinstance(msg, list):
+                        parts: List[str] = []
+                        for item in msg:
+                            if isinstance(item, dict) and "value" in item:
+                                parts.append(str(item["value"]))
+                            else:
+                                parts.append(str(item))
+                        return "; ".join(parts)
+                    return str(msg)
+                except Exception:
+                    return None
+
+            wb_msg = _extract_wb_message(data)
+            if wb_msg:
+                raise RuntimeError(f"World Bank API error: {wb_msg}")
 
             return data
 
@@ -82,7 +109,10 @@ class WorldBankClient:
                 raise RuntimeError(f"Unexpected API format at {url} params={params}")
 
             meta, rows = data[0], data[1]
+            # If rows is None or an empty list, stop iteration (no data).
             if rows is None:
+                return
+            if isinstance(rows, list) and len(rows) == 0:
                 return
 
             yield rows
@@ -107,9 +137,13 @@ class WorldBankClient:
         - date: "2010:2020" o "2010" o None
         """
         if isinstance(countries, list):
-            countries_param = ";".join([c.strip().lower() for c in countries])
+            # Preserve provided country codes (don't force lower/upper).
+            # The World Bank API is case-insensitive, but keeping the
+            # original formatting helps debugging and avoids surprising
+            # transformations for callers.
+            countries_param = ";".join([c.strip() for c in countries])
         else:
-            countries_param = countries.strip().lower()
+            countries_param = countries.strip()
 
         endpoint = f"country/{countries_param}/indicator/{indicator_code}"
         params: Dict[str, Any] = {}
