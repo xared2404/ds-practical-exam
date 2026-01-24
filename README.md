@@ -169,19 +169,19 @@ Below are example figures generated during the analysis and saved under `data/pr
 
 Co₂ per capita timeseries:
 
-![CO₂ per capita timeseries](data/processed/co2_per_capita_timeseries.png)
+![CO₂ per capita timeseries](outputs/figures/co2_per_capita_timeseries.png)
 
 GDP vs CO₂ per capita (scatter):
 
-![GDP vs CO₂ per capita](data/processed/gdp_vs_co2_per_capita.png)
+![GDP vs CO₂ per capita](outputs/figures/gdp_vs_co2_per_capita.png)
 
 Q3 — Scenario projections (example):
 
-![Q3 scenarios CO₂ (Mt)](data/processed/q3_scenarios_co2_mt_2035.png)
+![Q3 scenarios CO₂ (Mt)](outputs/figures/q3_scenarios_co2_mt_2035.png)
 
 Q4 — SHAP explainability (example):
 
-![Q4 SHAP summary](data/processed/q4_shap_summary_dot.png)
+![Q4 SHAP summary](outputs/figures/q4_shap_summary_dot.png)
 
 
 ## Author
