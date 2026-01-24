@@ -1,3 +1,16 @@
+Q5. Ranking
+
+## Q5 — Ranking of policy priorities
+
+### Data
+
+Use `data/processed/q5_ranking.csv`. Order descending by `priority_score`.
+
+***
+
+### Top 30 (descending)
+
+
 
 # Q5 — Country prioritization ranking
 

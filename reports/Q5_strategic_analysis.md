@@ -1,3 +1,19 @@
+Q5. Strategic analysis and top priorities
+
+## 5. Q5 — Strategic analysis
+### Objective
+
+Rank policy levers and strategic priorities according to expected CO$_2$ reduction and political feasibility.
+### Method
+
+- Use the ranking produced in `data/processed/q5_ranking.csv`.
+- Show top 30 priorities in a bar chart.
+### Results
+
+- Top priorities: renewable grid investment, energy efficiency standards, industrial emissions controls.
+### Figures
+
+	![Q5 top priorities](outputs/figures/q5_top30_priority_score.png)
 ###Q5. Strategic Investment Prioritization
 
 Objective

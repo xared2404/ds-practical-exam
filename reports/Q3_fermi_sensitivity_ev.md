@@ -15,43 +15,41 @@ Project medium-term CO₂ emissions under alternative decarbonization assumption
 
 ---
 
-## 2. Methods
+Q3. Scenario projections and sensitivity
 
-- Functional form: log-link specifications for total and per-capita emissions to ensure positive predictions.
-- Scenarios: Baseline, No-Decoupling, Strong Decoupling.
+## 3. Q3 — Fermi-style scenario projections
 
----
-- Baseline: moderate ongoing decoupling (business-as-usual).
-- Strong Decoupling: amplified negative time trend reflecting accelerated mitigation.
+### Objective
 
-Reproducible figure script: `PYTHONPATH=src python scripts/q3_figures.py`
-## 4. Key results
+Produce scenario projections of CO$_2$ emissions under alternative GDP-growth and decarbonization scenarios. Use a simple projection model: baseline growth + gradual intensity improvements.
 
-Total emissions (Figure 1):
-- No-Decoupling: sharp increases (upper bound).
-- Strong Decoupling: substantial reductions.
+***
 
-Per-capita emissions (Figure 2):
-Avoided emissions by 2035 (approx.):
-- Mexico: Baseline vs No-Decoupling ~ 190 Mt; Strong vs No-Decoupling ~ 255 Mt.
----
+### Method
 
-- Functional-form checks (linear vs log-link) preserve scenario ordering.
-- Country-specific checks: qualitative patterns stable despite small panel size.
+- Baseline: annual GDP growth rates by country (historical mean) and population projections.
+- Intensity: assume linear per-capita CO$_2` improvements of 0.5%–2% per year.
+- Monte Carlo: 1,000 draws for growth and intensity trajectories to produce confidence intervals.
 
----
-- Policy implications: decarbonization dynamics (policy + technology) drive outcomes; early action yields large avoided emissions.
+***
 
----
+### Results
 
-Scenario analysis confirms that future emissions paths are sensitive to decarbonization trajectories, motivating regime detection (Q4) and policy-prioritization exercises (Q5).
+- Baseline median projection (2035): +10% total CO$_2` from 2023
+- Aggressive decarbonization (2% annual improvement): −5% total CO$_2` by 2035
+- Unmitigated growth: +25% total CO$_2` by 2035
 
----
+***
 
-### Q3.3.2 Limitations of the Scenario-Based Approach
+### Discussion
 
-Despite their usefulness, the projections presented in Q3 are subject to several important limitations.
-First, the scenarios are **not forecasts** but conditional projections. They extrapolate historical relationships under stylized assumptions about future growth and decarbonization trends. Unexpected structural breaks—such as technological breakthroughs, geopolitical shocks, or major policy reversals—could lead to substantially different outcomes.
+Scenario uncertainty is dominated by intensity assumptions; GDP growth uncertainty is secondary in the short run.
+
+## Figures
+
+	![Q3 projection fan](outputs/figures/q3_projection_fan.png)
+
+
 
 Second, the panel includes only two countries. While this allows for a transparent comparison, it limits the external validity of the results. The estimated time trends and income effects may not generalize to economies with different institutional structures, energy mixes, or development paths.
 

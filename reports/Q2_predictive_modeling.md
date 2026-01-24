@@ -22,13 +22,37 @@ Hypotheses:
 -- H3: Statistically significant time trend exists (beta3 != 0)
 -- H4: Structural country differences may be present (beta4 != 0)
 
+Q2. Predictive Modeling of CO$_2$ Emissions
+
+2.1 Research Question and Hypotheses
+
+# Q2 — Predictive modeling of CO$_2$ emissions
+
+## 1. Objective
+
+This section evaluates how CO$_2$ emissions relate to economic activity and population size in Mexico and the United States for 1990–2023. It distinguishes scale effects (total emissions) from intensity effects (per-capita emissions) and tests whether temporal dynamics dominate static income relationships.
+
+***
+
+## 2. Models and hypotheses
+
+Model A (Total CO$_2$ emissions)
+- Dependent: `co2_mt` (total CO$_2` emissions, Mt)
+- Explanatory: `gdp_current_usd`, `population`, `year`, `country`
+
+Hypotheses:
+-- H1: Higher GDP → higher total CO$_2$ (beta1 > 0)
+-- H2: Larger population → higher total CO$_2$ (beta2 > 0)
+-- H3: Statistically significant time trend exists (beta3 != 0)
+-- H4: Structural country differences may be present (beta4 != 0)
+
 Model B (CO$_2$ per capita)
 - Dependent: `co2_per_capita` (tons/person)
 - Explanatory: `gdp_per_capita`, `year`, `country`
 
 Rationale: population is excluded from Model B because it is implicit in the per-capita outcome.
 
----
+***
 
 ## 3. Estimation and diagnostics
 
@@ -37,7 +61,7 @@ Rationale: population is excluded from Model B because it is implicit in the per
 
 Key diagnostics indicate strong explanatory power for scale-based models but presence of serial correlation and multicollinearity typical of short panels.
 
----
+***
 
 ## 4. Main results
 
@@ -53,7 +77,7 @@ Model B (per-capita):
 
 Fixed-effects and EKC tests reduce the apparent income effect, pointing to the importance of time and structural factors.
 
----
+***
 
 ## 5. Synthesis
 
@@ -68,7 +92,7 @@ Estimation Results (Model A)
 
 ## Figures
 
-- GDP vs CO₂ per capita (supporting figure):
+- GDP vs CO$_2$ per capita (supporting figure):
 
 	![GDP vs CO$_2$ per capita](outputs/figures/gdp_vs_co2_per_capita.png)
 

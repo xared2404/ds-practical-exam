@@ -62,36 +62,35 @@ Models:
 - Logistic regression (baseline linear benchmark)
 - Random Forest classifier (nonlinear benchmark)
 
-Validation:
-- Rolling temporal splits (min train 10 yrs; test 5 yrs) to avoid leakage.
+Q4. Classification of policy relevance
 
-Performance (average across rolling splits):
-| Model | Accuracy | Precision | Recall | F1 |
-|---|---:|---:|---:|---:|
-| Random Forest | ~0.74 | ~0.42 | ~0.34 | ~0.35 |
-| Logistic Regression | ~0.77 | ~0.48 | ~0.01 | ~0.02 |
+## 4. Q4 — classification and policy relevance
 
-Random Forest improves recall and F1, indicating nonlinear structure.
+### Objective
 
----
+Categorize policy measures (pricing, regulation, R&D support) according to expected emissions impact and political feasibility.
 
-## 6. Explainability
+***
 
-- SHAP values applied to Random Forest show dynamic emissions variables dominate feature importance; level variables matter less.
-- SHAP patterns vary across countries, reflecting heterogeneous transition processes.
+### Method
 
----
+- Map interventions across a 2×2 matrix: impact vs feasibility.
+- Use evidence from Q2 (responsiveness of emissions to GDP and population) to rank interventions.
 
-## 7. Policy interpretation & limitations
+***
 
-Key insights:
-1. Dynamics (changes) > levels (GDP/population) for detecting transitions.
-2. Regime shifts reflect decoupling capacity rather than wealth or size.
-3. Monitoring growth rates of emissions provides useful early-warning signals.
+### Results
 
-Limitations: reduced-form target, correlation not causation, uneven data coverage.
+- High-impact, high-feasibility: fuel efficiency standards, grid decarbonization support.
+- High-impact, low-feasibility: carbon pricing in politically polarized settings.
+- Low-impact, high-feasibility: behavioral nudges, targeted subsidies.
 
----
+***
+
+### Figures
+
+	![Policy matrix](outputs/figures/policy_matrix.png)
+
 
 ## 8. Conclusion
 
