@@ -1,7 +1,3 @@
-Q2. Predictive Modeling of CO₂ Emissions
-
-2.1 Research Question and Hypotheses
-
 # Q2 — Predictive modeling of CO₂ emissions
 
 ## 1. Objective
